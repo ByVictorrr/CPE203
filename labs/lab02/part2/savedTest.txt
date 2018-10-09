@@ -1,0 +1,3 @@
+  double pCircle = Util.perimeter(new Circle(new Point(1.0, 1.0), 1.0));
+                double pRectangle = Util.perimeter(new Rectangle(new Point(-1.0, 2.0), new Point(1.0,-1.6 )));
+                double pPolygon = Util.perimeter(new Polygon(points_polygon));
