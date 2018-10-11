@@ -26,15 +26,22 @@ public class Triangle implements Shape{
 	public Point getVertexC(){return C;} // - Returns the Point representing vertex C of the Triangle.
 	public Color getColor(){return color;} //- Returns the java.awt.Color of the Shape.
 	public void setColor(Color c){color = c;} // Sets the java.awt.Color of the Shape.
-	public double getArea(){return 0.05*(A.getX()*(B.getY()-C.getY())+B.getX()*(C.getY() - A.getY() ) + C.getX() * ( A.getY() - B.getY()) ); } // - Returns the area of the Shape
+	public double getArea(){return 0.05*(A.x*(B.y-C.y)+B.x*(C.y - A.y ) + C.x * ( A.y - B.y) ); } // - Returns the area of the Shape
     	
 	public double getPerimeter(){
 	
-	return Math.sqrt(Math.pow(C.getX()-B.getX(),2) +  Math.pow(C.getY()-B.getY(),2)) + Math.sqrt(Math.pow(A.getX()-C.getX(),2) +  Math.pow(A.getY()-C.getY(),2)
-) + Math.sqrt( Math.pow(A.getX()-B.getX(),2) +  Math.pow(A.getY()-B.getY(),2)); } // - Returns the perimeter of the Shape
+	return Math.sqrt(Math.pow(C.x-B.x,2) +  Math.pow(C.y-B.y,2)) + Math.sqrt(Math.pow(A.x-C.x,2) +  Math.pow(A.y-C.y,2)
+) + Math.sqrt( Math.pow(A.x-B.x,2) +  Math.pow(A.y-B.y,2)); } // - Returns the perimeter of the Shape
     
     public void translate(Point p){
-    //center = p;
+    
+	A.x = A.x + p.x;
+	A.y = A.y + p.y;
+	B.x = A.x + p.x;
+	B.y = A.y + p.y;
+	C.x = A.x + p.x;
+	C.y = A.y + p.y;
+
     }// - Translates the entire shape by the (x,y) coordinates of a given java.awt.Point
 
 

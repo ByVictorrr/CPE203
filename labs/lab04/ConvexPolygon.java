@@ -9,8 +9,10 @@ import java.awt.Color;
 import java.awt.Point;
 
 
+
+
 public class ConvexPolygon implements Shape{
-	private Point [] v;
+	private Point [] v ;
 	private Color color;
 	
 	
@@ -18,9 +20,9 @@ public class ConvexPolygon implements Shape{
 		
 		color = c;
 		
-		for (int i=0; i<a.length; i++)
+		for (Point k: a)
 		{
-		v[i] = a[i];				
+		   v[++] = k;				
 		}
 	
 	}
@@ -39,14 +41,14 @@ public class ConvexPolygon implements Shape{
 			//for last term of lef
 			if(i==v.length-1)
 			{
-			left = left + v[v.length-1].getX()*v[0].getY();
-			right = right + v[v.length-1].getY()*v[0].getX();
+			left = left + v[v.length-1].x*v[0].y;
+			right = right + v[v.length-1].y*v[0].x;
 
 			}
 			else{
 	
-			left = v[i].getX()*v[i+1].getY()+ left; 
-			right = v[i].getY()*v[i+1].getX()+ right;
+			left = v[i].x*v[i+1].y+ left; 
+			right = v[i].y*v[i+1].y+ right;
 
 			}
 		}
@@ -59,15 +61,23 @@ public class ConvexPolygon implements Shape{
 
 			for(int i=0; i< v.length; i++){
 				if ( v.length -1 == i){
-					per = per + Math.sqrt( Math.pow( v[v.length-1].getX() - v[0].getX() ,2) + Math.pow(v[v.length-1].getY() - v[0].getY(),2) );
+					per = per + Math.sqrt( Math.pow( v[v.length-1].x - v[0].x ,2) + Math.pow(v[v.length-1].y - v[0].y,2) );
 				}
 
-				per = per + Math.sqrt( Math.pow( v[i].getX() - v[i+1].getX() ,2) + Math.pow(v[i].getY() - v[i+1].getY(),2) );                         
+				per = per + Math.sqrt( Math.pow( v[i].x - v[i+1].x ,2) + Math.pow(v[i].y - v[i+1].y,2) );                         
 			}
 			return per;
 	 	
 	 	} // - Returns the perimeter of the Shape
-       public void translate(Point p){//center = p;
+       public void translate(Point p){
+		
+		for(int i=0; i< v.length; i++){
+		 
+		v[i].x = (v[i].x + p.x);
+		v[i].y = (v[i].y + p.x);
+
+		}
+		//center = p;
        }// - Translates the entire shape by the (x,y) coordinates of a given java.awt.Point
 
 

@@ -14,6 +14,7 @@ import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.fail;
 import org.junit.Test;
 
+
 public class TestCases
 {
    public static final double DELTA = 0.00001;
@@ -21,8 +22,97 @@ public class TestCases
    /* put your tests here */
 
    
+   public void testPerimeter(Circle c, Rectangle r, Triangle t, ConvexPolygon cp){
+	
+   
 
-   /* HINT - comment out implementation tests for the classes that you have not yet implemented */
+   //test perimeter of circle
+	assertEquals(Math.PI*2.0*2.0, c.getPerimeter(), DELTA);
+   //test perimeter of rectangel
+   assertEquals(4.0, r.getPerimeter(), DELTA);
+   //test perimeter of triangle
+   assertEquals(3.4, t.getPerimeter(), DELTA);
+   //test perimeter of convex polygon
+   assertEquals(6.82, cp.getPerimeter(), DELTA);
+
+
+   }
+    public void testArea(Circle c, Rectangle r, Triangle t, ConvexPolygon cp){
+
+         //test perimeter of circle
+         assertEquals(Math.PI*2.0*2.0, c.getArea(), DELTA);
+         //test perimeter of rectangel
+         assertEquals(4.0, r.getArea(), DELTA);
+         //test perimeter of triangle
+         assertEquals(3.4, t.getArea(), DELTA);
+         //test perimeter of convex polygon
+         assertEquals(2.00, cp.getArea(), DELTA);
+   
+   
+    }
+    public void testColor(Circle c, Rectangle r, Triangle t, ConvexPolygon cp){
+         //test perimeter of circle
+         assertEquals(Color.ORANGE, c.getColor());
+         //test perimeter of rectangel
+         assertEquals(Color.ORANGE, r.getColor());
+         //test perimeter of triangle
+         assertEquals(Color.ORANGE, t.getColor());
+         //test perimeter of convex polygon
+         assertEquals(Color.ORANGE, cp.getColor());
+
+
+    }
+
+    public void testTranslate(Circle c, Rectangle r, Triangle t, ConvexPolygon cp){
+         
+         c.translate(new Point(1,1));
+         r.translate( new Point(1,1));
+         t.translate(new Point(1,1));
+         cp.translate( new Point(1,1));
+
+         //test perimeter of circle
+         assertEquals( new Point(1,1), c.getCenter());
+         //test perimeter of rectangel
+         assertEquals(new Point(3,1), r.getUpperLeft() );
+         //test perimeter of triangle
+         assertEquals(new Point(2,1), t.getVertexA());
+
+          assertEquals(new Point(1,2), t.getVertexB());
+
+          assertEquals(new Point(1,1), t.getVertexC());
+
+         //test perimeter of convex polygon
+         assertEquals(new Point[]{new Point(1,1), new Point(1,3), new Point(-1,1), new Point(-1,0)}, new Point[]{cp.getVertex(0),cp.getVertex(1), cp.getVertex(2),cp.getVertex(3)});
+
+
+    }
+     
+
+    @Test
+     public void TestAll(){
+
+
+      Point [] p = new Point[]{new Point(0,0), new Point(0,2), new Point(-2,0), new Point(-2,-1)};
+
+      Circle c1 = new Circle(2.0,new Point(0,0), new Color(255,204,51));
+      
+      Rectangle r1 = new Rectangle(2.0,2.0, new Point(2,0), new Color(255,204,51));
+
+      Triangle t1 = new Triangle ( new Point ( 1,0), new Point (0,1), new Point(0,0), new Color ( 255,204,51));
+
+     ConvexPolygon cp1 = new ConvexPolygon(p, new Color (255,204,51));
+
+
+      testPerimeter(c1, r1, t1, cp1);
+       testArea(c1, r1, t1, cp1);
+       testTranslate(c1, r1, t1, cp1);
+      testColor(c1, r1, t1, cp1);
+   
+
+
+     }
+
+  /* /* HINT - comment out implementation tests for the classes that you have not yet implemented */
    @Test
    public void testCircleImplSpecifics()
       throws NoSuchMethodException
