@@ -20,9 +20,9 @@ public class ConvexPolygon implements Shape{
 		
 		color = c;
 		
-		for (Point k: a)
+		for (int x =0; x< a.length; x++)
 		{
-		   v[++] = k;				
+		   v[x] = a[a];				
 		}
 	
 	}
