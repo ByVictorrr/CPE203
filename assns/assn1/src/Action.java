@@ -1,4 +1,3 @@
-import org.omg.CORBA.PRIVATE_MEMBER;
 
 final class Action
 {
@@ -53,32 +52,32 @@ final class Action
       switch (this.entity.getEntityKind())
       {
          case MINER_FULL:
-            this.entity.executeMinerFullActivity(this.entity, this.world,
+            this.entity.executeMinerFullActivity( this.world,
                     this.imageStore, scheduler);
             break;
 
          case MINER_NOT_FULL:
-            this.entity.executeMinerNotFullActivity(this.entity, this.world,
+            this.entity.executeMinerNotFullActivity( this.world,
                     this.imageStore, scheduler);
             break;
 
          case ORE:
-            this.entity.executeOreActivity(this.entity, this.world, this.imageStore,
+            this.entity.executeOreActivity( this.world, this.imageStore,
                     scheduler);
             break;
 
          case ORE_BLOB:
-            this.entity.executeOreBlobActivity(this.entity, this.world,
+            this.entity.executeOreBlobActivity( this.world,
                     this.imageStore, scheduler);
             break;
 
          case QUAKE:
-            this.entity.executeQuakeActivity(this.entity, this.world, this.imageStore,
+            this.entity.executeQuakeActivity( this.world, this.imageStore,
                     scheduler);
             break;
 
          case VEIN:
-            this.entity.executeVeinActivity(this.entity, this.world, this.imageStore,
+            this.entity.executeVeinActivity( this.world, this.imageStore,
                     scheduler);
             break;
 
