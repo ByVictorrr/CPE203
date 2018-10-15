@@ -36,15 +36,19 @@ public class WorkSpace{
 
     	for (int i =0; i< obj.size(); i++)
     		{
-    			if( obj.get(i).getClass() != Circle.class){
-    			
-    			obj.remove(i);
+    			if( obj.get(i).getClass() == Circle.class){
+    				
+
+				circles.add((Circle)obj.get(i)); 	
+    			//obj.remove(i);
     			
     			}
 
     		}
     		//
-    		return (ArrayList<Circle>)(Object)obj;
+    		return circles;
+
+	//(ArrayList<Circle>)(Object)obj;
     } 
 	//- Returns a List of all the Circle objects contained by the WorkSpace.
     public List<Rectangle> getRectangles(){
@@ -53,12 +57,13 @@ public class WorkSpace{
 
     	for (int i =0; i< obj.size(); i++)
     		{
-    			if(obj.get(i).getClass() != Rectangle.class){
+    			if(obj.get(i).getClass() == Rectangle.class){
     			
-    			obj.remove(i);
+    			//obj.remove(i);
+    			rectangle.add((Rectangle)obj.get(i));
     		}
     		}
-    		return (ArrayList<Rectangle>)(Object)obj;
+    		return rectangle;
     }
 	// - Returns a List of all the Rectangle objects contained by the WorkSpace.
     public List<Triangle> getTriangles(){ 
@@ -67,12 +72,13 @@ public class WorkSpace{
 
     	for (int i =0; i< obj.size(); i++)
     		{
-    			if( obj.get(i).getClass() != Triangle.class){
+    			if( obj.get(i).getClass() == Triangle.class){
 
-    			obj.remove(i);
+
+				triangle.add((Triangle)obj.get(i));
     		}
     		}
-    		return (ArrayList<Triangle>)(Object)obj;
+    		return triangle;
 	} //- Returns a List of all the Triangle objects contained by the WorkSpace.
     public List<ConvexPolygon> getConvexPolygons() {
 
@@ -80,13 +86,14 @@ public class WorkSpace{
 
     	for (int i =0; i< obj.size(); i++)
     		{
-    			if( obj.get(i).getClass() != ConvexPolygon.class){
+    			if( obj.get(i).getClass() == ConvexPolygon.class){
 
-    			obj.remove(i);
+    			CP.add((ConvexPolygon)obj.get(i));
     		}
     		}
-    		return (ArrayList<ConvexPolygon>)(Object)obj;
-    }
+ 
+		return CP;
+   }
 
 	//- Returns a List of all the ConvexPolygon objects contained by the WorkSpace.
     public List<Shape> getShapesByColor(Color color){
