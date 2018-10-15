@@ -19,15 +19,18 @@ public class ConvexPolygon implements Shape{
 	public ConvexPolygon(Point [] a, Color c){
 		
 		color = c;
+
 		
-		for (int x =0; x< a.length; x++)
+		for (int i =0; i< a.length; i++)
 		{
-		   v[x] = a[a];				
+		  v[i] = a[i];				
 		}
 	
 	}
 	 //- A constructor with parameters to initialize all its instance variables. Do not implement a default constructor.
-    public Point getVertex(int index){return v[index];} 
+    public Point getVertex(int index){
+	if(index> v.length) return null;
+	else return v[index];} 
 	//- Takes an index and returns the specified vertex of the ConvexPolygon.
 	
 	public Color getColor(){return color;} //- Returns the java.awt.Color of the Shape.
@@ -37,6 +40,7 @@ public class ConvexPolygon implements Shape{
 		double area=0.0;
 		double left=0.0;
 		double right =0.0;
+		
 		for(int i=0; i< v.length; i++){
 			//for last term of lef
 			if(i==v.length-1)
@@ -52,6 +56,7 @@ public class ConvexPolygon implements Shape{
 
 			}
 		}
+
 		return 0.5*(left-right);
 	
 	} // - Returns the area of the Shape
@@ -59,7 +64,7 @@ public class ConvexPolygon implements Shape{
 
         	double per=0.0;
 
-			for(int i=0; i< v.length; i++){
+		for(int i=0; i< v.length; i++){
 				if ( v.length -1 == i){
 					per = per + Math.sqrt( Math.pow( v[v.length-1].x - v[0].x ,2) + Math.pow(v[v.length-1].y - v[0].y,2) );
 				}

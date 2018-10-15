@@ -27,11 +27,11 @@ public class TestCases
    
 
    //test perimeter of circle
-	assertEquals(Math.PI*2.0*2.0, c.getPerimeter(), DELTA);
+	assertEquals(Math.PI*4.0, c.getPerimeter(), DELTA);
    //test perimeter of rectangel
-   assertEquals(4.0, r.getPerimeter(), DELTA);
+   assertEquals(8.0, r.getPerimeter(), DELTA);
    //test perimeter of triangle
-   assertEquals(3.4, t.getPerimeter(), DELTA);
+   assertEquals(3.41421356, t.getPerimeter(), DELTA);
    //test perimeter of convex polygon
    assertEquals(6.82, cp.getPerimeter(), DELTA);
 
@@ -86,13 +86,20 @@ public class TestCases
 
 
     }
-     
+   
+
+	public void TestGetShapes(){
+	
+
+	}
+
+  
 
     @Test
      public void TestAll(){
 
 
-      Point [] p = new Point[]{new Point(0,0), new Point(0,2), new Point(-2,0), new Point(-2,-1)};
+      Point [] p= new Point[]{new Point(0,0), new Point(0,2), new Point(-2,0), new Point(-2,-1)};
 
       Circle c1 = new Circle(2.0,new Point(0,0), new Color(255,204,51));
       
@@ -103,10 +110,10 @@ public class TestCases
      ConvexPolygon cp1 = new ConvexPolygon(p, new Color (255,204,51));
 
 
-      testPerimeter(c1, r1, t1, cp1);
-       testArea(c1, r1, t1, cp1);
-       testTranslate(c1, r1, t1, cp1);
-      testColor(c1, r1, t1, cp1);
+     testPerimeter(c1, r1, t1, cp1);
+      testArea(c1, r1, t1, cp1);
+      testTranslate(c1, r1, t1, cp1);
+     testColor(c1, r1, t1, cp1);
    
 
 
