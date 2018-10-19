@@ -1,0 +1,33 @@
+START session1 customer1
+START session2 customer1
+START session3 customer1
+START session4 customer2
+START session5 customer2
+
+VIEW session1 product1 50
+VIEW session1 product2 75
+VIEW session1 product3 100
+
+VIEW session2 product1 100
+VIEW session2 product1 100
+VIEW session2 product1 100
+VIEW session2 product4 200
+BUY session2 product1 100 2
+BUY session2 product3 300 2
+3
+VIEW session3 product3 100
+VIEW session3 product2 100
+
+VIEW session4 product3 200
+BUY session4 product1 100 2
+
+VIEW session5 product1 100
+VIEW session5 product3 100
+VIEW session5 product1 100
+VIEW session5 product4 100
+
+END session1
+END session2
+END session3
+END session4
+END session5

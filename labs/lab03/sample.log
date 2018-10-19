@@ -1,0 +1,272 @@
+START session0 customer14
+START session1 customer16
+START session2 customer18
+START session3 customer0
+START session4 customer17
+START session5 customer0
+START session6 customer6
+START session7 customer4
+START session8 customer1
+START session9 customer17
+START session10 customer16
+START session11 customer4
+START session12 customer1
+START session13 customer1
+START session14 customer3
+START session15 customer16
+START session16 customer14
+START session17 customer12
+START session18 customer8
+START session19 customer5
+START session20 customer14
+START session21 customer18
+START session22 customer19
+START session23 customer7
+START session24 customer8
+START session25 customer10
+START session26 customer6
+START session27 customer7
+START session28 customer15
+START session29 customer13
+START session30 customer12
+START session31 customer17
+START session32 customer5
+START session33 customer6
+START session34 customer19
+START session35 customer7
+START session36 customer12
+START session37 customer15
+START session38 customer9
+START session39 customer5
+VIEW session37 product145 14600
+VIEW session39 product113 11400
+VIEW session22 product23 2400
+VIEW session38 product61 6200
+VIEW session38 product52 5300
+VIEW session31 product122 12300
+BUY session7 product121 12200 4
+VIEW session37 product10 1100
+VIEW session11 product101 10200
+VIEW session16 product12 1300
+VIEW session0 product125 12600
+VIEW session32 product163 16400
+VIEW session24 product79 8000
+VIEW session20 product80 8100
+VIEW session15 product162 16300
+VIEW session2 product135 13600
+VIEW session37 product100 10100
+VIEW session36 product31 3200
+VIEW session24 product109 11000
+VIEW session12 product143 14400
+VIEW session9 product9 1000
+VIEW session33 product42 4300
+VIEW session12 product101 10200
+VIEW session29 product189 19000
+VIEW session7 product64 6500
+VIEW session11 product126 12700
+VIEW session9 product181 18200
+VIEW session39 product80 8100
+VIEW session7 product121 12200
+BUY session31 product180 18100 2
+VIEW session36 product89 9000
+VIEW session31 product98 9900
+BUY session38 product97 9800 3
+VIEW session38 product168 16900
+VIEW session12 product151 15200
+VIEW session30 product182 18300
+VIEW session38 product191 19200
+VIEW session29 product24 2500
+VIEW session13 product99 10000
+VIEW session31 product152 15300
+VIEW session15 product169 17000
+VIEW session34 product190 19100
+VIEW session0 product192 19300
+BUY session4 product133 13400 1
+VIEW session23 product129 13000
+VIEW session33 product188 18900
+VIEW session14 product180 18100
+VIEW session28 product47 4800
+VIEW session39 product26 2700
+VIEW session39 product99 10000
+VIEW session24 product143 14400
+BUY session37 product67 6800 4
+VIEW session7 product115 11600
+VIEW session23 product20 2100
+VIEW session12 product98 9900
+VIEW session24 product95 9600
+VIEW session13 product119 12000
+VIEW session39 product162 16300
+VIEW session20 product152 15300
+VIEW session12 product174 17500
+VIEW session0 product190 19100
+VIEW session3 product66 6700
+VIEW session20 product47 4800
+VIEW session2 product57 5800
+VIEW session20 product138 13900
+VIEW session28 product57 5800
+VIEW session27 product46 4700
+VIEW session31 product121 12200
+VIEW session32 product76 7700
+VIEW session22 product199 20000
+VIEW session13 product22 2300
+VIEW session27 product139 14000
+VIEW session38 product21 2200
+VIEW session14 product104 10500
+VIEW session13 product129 13000
+VIEW session13 product192 19300
+VIEW session5 product181 18200
+VIEW session20 product123 12400
+VIEW session14 product102 10300
+VIEW session9 product154 15500
+VIEW session30 product146 14700
+VIEW session3 product91 9200
+VIEW session6 product196 19700
+VIEW session6 product33 3400
+VIEW session3 product59 6000
+VIEW session9 product164 16500
+VIEW session18 product17 1800
+VIEW session19 product136 13700
+VIEW session11 product153 15400
+VIEW session2 product36 3700
+VIEW session22 product19 2000
+BUY session27 product21 2200 3
+VIEW session38 product161 16200
+VIEW session2 product167 16800
+VIEW session16 product79 8000
+VIEW session14 product27 2800
+VIEW session34 product120 12100
+VIEW session14 product16 1700
+VIEW session28 product111 11200
+VIEW session31 product189 19000
+VIEW session15 product142 14300
+VIEW session31 product59 6000
+VIEW session16 product157 15800
+VIEW session14 product2 300
+VIEW session20 product59 6000
+VIEW session24 product116 11700
+VIEW session38 product136 13700
+VIEW session31 product180 18100
+VIEW session12 product57 5800
+VIEW session24 product136 13700
+VIEW session39 product67 6800
+VIEW session14 product55 5600
+VIEW session4 product57 5800
+VIEW session23 product102 10300
+VIEW session3 product165 16600
+VIEW session11 product174 17500
+VIEW session2 product195 19600
+VIEW session0 product94 9500
+VIEW session6 product114 11500
+VIEW session38 product97 9800
+VIEW session12 product155 15600
+VIEW session7 product98 9900
+VIEW session31 product56 5700
+VIEW session14 product142 14300
+VIEW session2 product135 13600
+VIEW session30 product144 14500
+VIEW session30 product175 17600
+VIEW session24 product174 17500
+VIEW session37 product50 5100
+VIEW session28 product25 2600
+VIEW session13 product70 7100
+VIEW session33 product119 12000
+VIEW session27 product21 2200
+VIEW session3 product52 5300
+BUY session15 product162 16300 1
+VIEW session4 product133 13400
+VIEW session11 product53 5400
+VIEW session28 product176 17700
+VIEW session5 product68 6900
+VIEW session0 product148 14900
+VIEW session39 product181 18200
+VIEW session7 product86 8700
+VIEW session39 product30 3100
+BUY session20 product152 15300 5
+VIEW session4 product118 11900
+VIEW session11 product187 18800
+VIEW session18 product108 10900
+VIEW session20 product144 14500
+VIEW session34 product47 4800
+VIEW session15 product157 15800
+VIEW session1 product135 13600
+VIEW session0 product123 12400
+VIEW session11 product65 6600
+VIEW session39 product39 4000
+VIEW session37 product179 18000
+VIEW session33 product73 7400
+VIEW session22 product157 15800
+VIEW session15 product86 8700
+VIEW session6 product123 12400
+VIEW session0 product151 15200
+VIEW session18 product114 11500
+VIEW session25 product198 19900
+VIEW session24 product8 900
+VIEW session36 product159 16000
+VIEW session7 product67 6800
+VIEW session9 product90 9100
+VIEW session7 product113 11400
+VIEW session0 product89 9000
+VIEW session0 product130 13100
+VIEW session31 product47 4800
+VIEW session33 product62 6300
+BUY session0 product190 19100 1
+VIEW session20 product15 1600
+VIEW session28 product90 9100
+VIEW session19 product181 18200
+VIEW session28 product21 2200
+VIEW session7 product162 16300
+VIEW session12 product30 3100
+VIEW session3 product88 8900
+VIEW session30 product54 5500
+VIEW session28 product98 9900
+VIEW session33 product170 17100
+VIEW session19 product52 5300
+VIEW session6 product163 16400
+BUY session38 product61 6200 4
+VIEW session20 product142 14300
+VIEW session28 product169 17000
+VIEW session37 product67 6800
+VIEW session33 product118 11900
+VIEW session37 product110 11100
+VIEW session14 product116 11700
+VIEW session5 product149 15000
+END session0
+END session1
+END session2
+END session3
+END session4
+END session5
+END session6
+END session7
+END session8
+END session9
+END session10
+END session11
+END session12
+END session13
+END session14
+END session15
+END session16
+END session17
+END session18
+END session19
+END session20
+END session21
+END session22
+END session23
+END session24
+END session25
+END session26
+END session27
+END session28
+END session29
+END session30
+END session31
+END session32
+END session33
+END session34
+END session35
+END session36
+END session37
+END session38
+END session39
