@@ -14,7 +14,7 @@ VIEW session2 product1 100
 VIEW session2 product4 200
 BUY session2 product1 100 2
 BUY session2 product3 300 2
-3
+
 VIEW session3 product3 100
 VIEW session3 product2 100
 
