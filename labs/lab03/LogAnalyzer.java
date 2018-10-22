@@ -203,69 +203,59 @@ public class LogAnalyzer
       final Map<String, List<Buy>> buysFromSession) {
        //for each customer, get their sessions
        //for each session compute views
+
+
        for (Map.Entry<String, List<String>> entry : sessionsFromCustomer.entrySet()) { //for the ith customer
 
-           //printing customier id
-           System.out.println(entry.getKey());
+           int counter = 0; //count num of sessions a customer viewed and eventually bought product
+
+           System.out.println(entry.getKey()); //print customer id
 
 
-           List<String> sessions = entry.getValue(); //getting list of the sesions associated with customer id with the ith customer
+           //for (Map.Entry<String, List<Buy>> entryBuy : buysFromSession.entrySet()) {
 
-           //int Num = 0;
-           for(String sessionID : sessions) { //for the jth session coressponding to the ith customer
-               int Num = 0;
 
-               //System.out.println(sessionID);
+               List<String> sessions = entry.getValue(); //getting list of the sesions associated with customer id with the ith customer
 
-                   List<Buy> theBuys = buysFromSession.get(sessionID);
+               List<Buy> theBuys = entryBuy.getValue();
 
-                   //buy could be null the next sesion id
-
-               if (theBuys != null) {
+               if (theBuys != null) { //if not empty
 
                    for (Buy thisBuy : theBuys) {
 
-                       List<View> theViews = viewsFromSession.get(sessionID);
 
-                       //now for every view that meets condition
+                       for (String sessionID : sessions) {
 
-
-                       if (theViews !=null){
-
+                           List<View> theViews = viewsFromSession.get(sessionID); //check every sesion of view
 
                            for (View thisView : theViews) {
 
-                                  if (thisView.getProduct().equals(thisBuy.getProduct())) {
+                               if (thisView.getProduct().equals(thisBuy.getProduct())) {
 
-                                   Num = Num + 1;
+                                   counter = counter+ 1;
 
                                }
-
-                               System.out.println("view .get product  " + thisView.getProduct());
-                                  System.out.println(" buy .get prouct  "+ thisBuy.getProduct());
+                              // System.out.println("view .get product  " + thisView.getProduct());
+                               //System.out.println(" buy .get prouct  " + thisBuy.getProduct());
 
 
                            }
 
-                           //prints out prouct with num of views
-                           System.out.println("\t\t" + thisBuy.getProduct() + "  " + Num);
-                       }
 
+
+                       }
+                       //prints out prouct with num of views
+                       System.out.println("\t\t" + thisBuy.getProduct() + "  " + counter);
                    }
                }
 
 
-
-
-               /* add printing */
            }
 
-
-       } //end of the ith customer
-
-       System.out.println("Number of Views for Purchased Product by Customer");
-
    }
+
+
+
 
     public void customerItemViewsForPurchase( final Map<String, List<String>> sessionsFromCustomer,
                                               final Map<String, List<View>> viewsFromSession,
