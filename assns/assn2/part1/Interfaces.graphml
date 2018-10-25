@@ -264,7 +264,7 @@
           <y:BorderStyle color="#000000" type="line" width="1.0"/>
           <y:NodeLabel alignment="center" autoSizePolicy="content" fontFamily="Dialog" fontSize="13" fontStyle="bold" hasBackgroundColor="false" hasLineColor="false" height="19.1328125" horizontalTextPosition="center" iconTextGap="4" modelName="custom" textColor="#000000" verticalTextPosition="bottom" visible="true" width="47.494140625" x="141.10852462620505" xml:space="preserve" y="25.96875">Entity<y:LabelModel><y:SmartNodeLabelModel distance="4.0"/></y:LabelModel><y:ModelParameter><y:SmartNodeLabelModelParameter labelRatioX="0.0" labelRatioY="0.0" nodeRatioX="0.0" nodeRatioY="-0.03703090122767855" offsetX="0.0" offsetY="0.0" upX="0.0" upY="-1.0"/></y:ModelParameter></y:NodeLabel>
           <y:UML clipContent="true" constraint="" hasDetailsColor="false" omitDetails="false" stereotype="interface" use3DEffect="true">
-            <y:AttributeLabel xml:space="preserve">-rand: Random             &lt;&lt;static&gt;&gt;</y:AttributeLabel>
+            <y:AttributeLabel xml:space="preserve"/>
             <y:MethodLabel xml:space="preserve">+position(): Point
 +setPosition()
 +getCurrentImage(): Pimage
@@ -360,7 +360,8 @@
 -images: List&lt;PImage&gt;
 -imageIndex: int
 -resourceLimit: int
--resourceCount: int</y:AttributeLabel>
+-resourceCount: int
+-rand: Random             &lt;&lt;static&gt;&gt;</y:AttributeLabel>
             <y:MethodLabel xml:space="preserve">+position(): Point
 +setPosition()
 +getCurrentImage(): Pimage
@@ -391,7 +392,7 @@
 -animationPeriod: int
 -images: List&lt;PImage&gt;
 -imageIndex: int
-
+-rand: Random             &lt;&lt;static&gt;&gt;
 </y:AttributeLabel>
             <y:MethodLabel xml:space="preserve">+position(): Point
 +setPosition()
@@ -419,7 +420,7 @@
 -animationPeriod: int
 -images: List&lt;PImage&gt;
 -imageIndex: int
-</y:AttributeLabel>
+-rand: Random             &lt;&lt;static&gt;&gt;</y:AttributeLabel>
             <y:MethodLabel xml:space="preserve">+position(): Point
 +setPosition()
 +getCurrentImage(): Pimage
@@ -448,7 +449,8 @@
 -ORE_ID_PREFIX: String                       &lt;&lt;static&gt;&gt;
 -ORE_CORRUPT_MIN: int                        &lt;&lt;static&gt;&gt;
 -ORE_CORRUPT_MAX: int                        &lt;&lt;static&gt;&gt;
--ORE_REACH: int                              &lt;&lt;static&gt;&gt;</y:AttributeLabel>
+-ORE_REACH: int                              &lt;&lt;static&gt;&gt;
+-rand: Random             &lt;&lt;static&gt;&gt;</y:AttributeLabel>
             <y:MethodLabel xml:space="preserve">+position(): Point
 +setPosition()
 +getCurrentImage(): Pimage
@@ -478,7 +480,8 @@
 -BLOB_PERIOD_SCALE: int                      &lt;&lt;static&gt;&gt;
 -BLOB_ANIMATION_MIN: int                     &lt;&lt;static&gt;&gt;
 -BLOB_ANIMATION_MAX: int                     &lt;&lt;static&gt;&gt;
--BLOB_ID_SUFFIX: String                      &lt;&lt;static&gt;&gt;</y:AttributeLabel>
+-BLOB_ID_SUFFIX: String                      &lt;&lt;static&gt;&gt;
+-rand: Random             &lt;&lt;static&gt;&gt;</y:AttributeLabel>
             <y:MethodLabel xml:space="preserve">+position(): Point
 +setPosition()
 +getCurrentImage(): Pimage
@@ -509,7 +512,7 @@
 -QUAKE_ACTION_PERIOD: int                    &lt;&lt;static&gt;&gt;
 -QUAKE_ANIMATION_PERIOD: int                 &lt;&lt;static&gt;&gt;
 -QUAKE_ANIMATION_REPEAT_COUNT: int           &lt;&lt;static&gt;
-
+-rand: Random             &lt;&lt;static&gt;&gt;
 </y:AttributeLabel>
             <y:MethodLabel xml:space="preserve">+position(): Point
 +setPosition()
@@ -537,7 +540,7 @@
 -animationPeriod: int
 -images: List&lt;PImage&gt;
 -imageIndex: int
-
+-rand: Random             &lt;&lt;static&gt;&gt;
 </y:AttributeLabel>
             <y:MethodLabel xml:space="preserve">+position(): Point
 +setPosition()
@@ -589,7 +592,8 @@
 -images: List&lt;PImage&gt;
 -imageIndex: int
 -resourceLimit: int
--resourceCount: int</y:AttributeLabel>
+-resourceCount: int
+-rand: Random             &lt;&lt;static&gt;&gt;</y:AttributeLabel>
             <y:MethodLabel xml:space="preserve">+position(): Point
 +setPosition()
 +getCurrentImage(): Pimage
@@ -661,7 +665,6 @@
       </data>
     </node>
     <edge id="e0" source="n19" target="n10">
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-133.52254556809135" ty="96.48940547391959">
@@ -676,7 +679,6 @@
     </edge>
     <edge id="e1" source="n12" target="n19">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="-90.88606099444448" tx="0.0" ty="0.0">
@@ -691,7 +693,6 @@
     </edge>
     <edge id="e2" source="n14" target="n10">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="20.83548816805944" sy="0.0" tx="-112.6870574000319" ty="97.1954201082126">
@@ -706,7 +707,6 @@
     </edge>
     <edge id="e3" source="n13" target="n10">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-79.76857076033298" ty="0.0"/>
@@ -718,7 +718,6 @@
     </edge>
     <edge id="e4" source="n17" target="n10">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-49.98517808631948" ty="0.0">
@@ -733,7 +732,6 @@
     </edge>
     <edge id="e5" source="n20" target="n19">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="56.19670111860893" ty="100.1999210974862">
@@ -748,7 +746,6 @@
     </edge>
     <edge id="e6" source="n15" target="n10">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-17.301406711030495" ty="0.0">
@@ -763,7 +760,6 @@
     </edge>
     <edge id="e7" source="n16" target="n10">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="15.761313512146216" ty="94.98823741830677">
@@ -778,7 +774,6 @@
     </edge>
     <edge id="e8" source="n18" target="n10">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="100.408850585658" ty="0.0">
@@ -793,7 +788,6 @@
     </edge>
     <edge id="e9" source="n22" target="n21">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="-54.69322217619879" ty="0.0">
@@ -808,7 +802,6 @@
     </edge>
     <edge id="e10" source="n23" target="n21">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="35.683689607916904" ty="43.068390183954705">
