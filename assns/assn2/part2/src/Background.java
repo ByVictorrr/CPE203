@@ -13,6 +13,7 @@ final class Background
       this.images = images;
    }
 
+
    public static PImage getCurrentImage(Object entity) {
       if (entity instanceof Background) {
          return ((Background) entity).images
@@ -25,9 +26,4 @@ final class Background
                          entity));
       }
    }
-
-
-
-
-
 }

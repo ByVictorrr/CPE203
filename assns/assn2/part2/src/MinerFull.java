@@ -1,10 +1,12 @@
 import processing.core.PImage;
 
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.util.List;
 import java.util.Optional;
 
-public class MinerFull{
+public class MinerFull implements Moveable{
 
+    private String id;
     private Point position;
     private List<PImage> images;
     private int imageIndex;
@@ -13,11 +15,29 @@ public class MinerFull{
     private int actionPeriod;
     private int animationPeriod;
 
-    public static Entity createMinerFull(String id, int resourceLimit,
+
+
+
+    public MinerFull( String id, Point position,
+                       List<PImage> images, int resourceLimit, int resourceCount,
+                       int actionPeriod, int animationPeriod)
+    {
+        this.id=id;
+        this.position = position;
+        this.images = images;
+        this.imageIndex = 0;
+        this.resourceLimit = resourceLimit;
+        this.resourceCount = resourceCount;
+        this.actionPeriod = actionPeriod;
+        this.animationPeriod = animationPeriod;
+    }
+
+
+    public static MinerFull createMinerFull(String id, int resourceLimit,
                                          Point position, int actionPeriod, int animationPeriod,
                                          List<PImage> images)
     {
-        return new Entity(EntityKind.MINER_FULL, id, position, images,
+        return new MinerFull( id, position, images,
                 resourceLimit, resourceLimit, actionPeriod, animationPeriod);
     }
 
@@ -44,22 +64,9 @@ public class MinerFull{
     //public void setAnimationPeriod(int a) {this.animationPeriod = a;}
 
 
-
-    public static Action createAnimationAction(Entity entity, int repeatCount)
+    public void execute( WorldModel world, ImageStore imageStore, EventScheduler scheduler)
     {
-        return new Action(ActionKind.ANIMATION, entity, null, null, repeatCount);
-    }
-
-    public static Action createActivityAction(Entity entity, WorldModel world,
-                                              ImageStore imageStore)
-    {
-        return new Action(ActionKind.ACTIVITY, entity, world, imageStore, 0);
-    }
-
-
-    public void executeMinerFullActivity( WorldModel world, ImageStore imageStore, EventScheduler scheduler)
-    {
-        Optional<Entity> fullTarget = world.findNearest(this.position, EntityKind.BLACKSMITH);
+        Optional<Entity> fullTarget = world.findNearest(this.position, Blacksmith.class);
 
         if (fullTarget.isPresent() &&
                 moveToFull(this, world, fullTarget.get(), scheduler))
@@ -69,7 +76,7 @@ public class MinerFull{
         else
         {
             scheduler.scheduleEvent(this,
-                    createActivityAction(this, world, imageStore),
+                    Activity.createActivityAction(this, world, imageStore),
                     this.actionPeriod);
         }
     }
@@ -77,7 +84,7 @@ public class MinerFull{
     public void transformFull( WorldModel world,
                                EventScheduler scheduler, ImageStore imageStore)
     {
-        Entity miner = createMinerNotFull(this.id, this.resourceLimit,
+        Entity miner = MinerNotFull.createMinerNotFull(this.id, this.resourceLimit,
                 this.position, this.actionPeriod, this.animationPeriod,
                 this.images);
 
@@ -91,7 +98,7 @@ public class MinerFull{
 
 
 
-    public Point nextPositionMiner( WorldModel world, Point destPos)
+    public Point nextPosition( WorldModel world, Point destPos)
     {
         int horiz = Integer.signum(destPos.x - this.position.x);
         Point newPos = new Point(this.position.x + horiz,
@@ -139,39 +146,13 @@ public class MinerFull{
 
 
 
-    public Optional<Point> findOpenAround(Point pos)
-    {
-        for (int dy = -Entity.ORE_REACH; dy <= Entity.ORE_REACH; dy++)
-        {
-            for (int dx = -Entity.ORE_REACH; dx <= Entity.ORE_REACH; dx++)
-            {
-                Point newPt = new Point(pos.x + dx, pos.y + dy);
-                if (withinBounds( newPt) &&
-                        !isOccupied( newPt))
-                {
-                    return Optional.of(newPt);
-                }
-            }
-        }
 
-        return Optional.empty();
-    }
 
 
 
     public int getAnimationPeriod()
     {
-        switch (this.getEntityKind())
-        {
-            case MINER_FULL:
-            case MINER_NOT_FULL:
-            case ORE_BLOB:
-            case QUAKE:
                 return this.animationPeriod;
-            default:
-                throw new UnsupportedOperationException(
-                        String.format("getAnimationPeriod not supported for %s", this.getEntityKind()));
-        }
     }
 
     //edited
@@ -187,54 +168,10 @@ public class MinerFull{
 
     public void scheduleActions( EventScheduler scheduler, WorldModel world, ImageStore imageStore)
     {
-        switch (this.kind)
-        {
-            case MINER_FULL:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
+                scheduler.scheduleEvent((Entity) this,
+                        Activity.createActivityAction((Entity)this, world, imageStore),
                         this.actionPeriod);
-                scheduler.scheduleEvent(this, createAnimationAction(this, 0),
-                        this.getAnimationPeriod());
-                break;
 
-            case MINER_NOT_FULL:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case ORE:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            case ORE_BLOB:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case QUAKE:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, QUAKE_ANIMATION_REPEAT_COUNT),
-                        this.getAnimationPeriod());
-                break;
-
-            case VEIN:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            default:
+                scheduler.scheduleEvent(this, Activity.createActivityAction((Entity)this, null, null));
         }
-    }
 }

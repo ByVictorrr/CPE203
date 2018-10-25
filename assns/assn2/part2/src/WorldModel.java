@@ -10,6 +10,20 @@ final class WorldModel
    private Entity occupancy[][];
    private Set<Entity> entities;
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
    public WorldModel(int numRows, int numCols, Background defaultBackground)
    {
       this.numRows = numRows;
@@ -89,12 +103,12 @@ final class WorldModel
       return deltaX * deltaX + deltaY * deltaY;
    }
 
-   public Optional<Entity> findNearest(  Point pos, EntityKind kind)
+   public Optional<Entity> findNearest(  Point pos, Class type)
    {
       List<Entity> ofType = new LinkedList<>();
       for (Entity entity : entities)
       {
-         if (entity.getEntityKind()== kind)
+         if (entity.getClass() == type)
          {
             ofType.add(entity);
          }
@@ -154,7 +168,7 @@ final class WorldModel
    {
       if (withinBounds( pos))
       {
-         return Optional.of(Functions.getCurrentImage(getBackgroundCell( pos)));
+         return Optional.of(Background.getCurrentImage(getBackgroundCell( pos)));
       }
       else
       {
@@ -204,7 +218,23 @@ final class WorldModel
    }
 
 
+   public Optional<Point> findOpenAround( Point pos)
+   {
+      for (int dy = -Entity.ORE_REACH; dy <= Entity.ORE_REACH; dy++)
+      {
+         for (int dx = -Entity.ORE_REACH; dx <= Entity.ORE_REACH; dx++)
+         {
+            Point newPt = new Point(pos.x + dx, pos.y + dy);
+            if (withinBounds( newPt) &&
+                    !isOccupied( newPt))
+            {
+               return Optional.of(newPt);
+            }
+         }
+      }
 
+      return Optional.empty();
+   }
 
 
 }

@@ -2,10 +2,10 @@ import processing.core.PImage;
 
 import java.util.List;
 
-public class Blacksmith{
+public class Blacksmith implements Entity{
 
 
-
+    private String id;
     private Point position;
     private List<PImage> images;
     private int imageIndex;
@@ -16,10 +16,29 @@ public class Blacksmith{
 
 
 
-    public static Entity createBlacksmith(String id, Point position,
+
+    public Blacksmith( String id, Point position,
+                  List<PImage> images, int resourceLimit, int resourceCount,
+                  int actionPeriod, int animationPeriod)
+    {
+        this.id=id;
+        this.position = position;
+        this.images = images;
+        this.imageIndex = 0;
+        this.resourceLimit = resourceLimit;
+        this.resourceCount = resourceCount;
+        this.actionPeriod = actionPeriod;
+        this.animationPeriod = animationPeriod;
+    }
+
+
+
+
+
+    public static Blacksmith createBlacksmith(String id, Point position,
                                           List<PImage> images)
     {
-        return new Entity(EntityKind.BLACKSMITH, id, position, images,
+        return new Blacksmith( id, position, images,
                 0, 0, 0, 0);
     }
 
@@ -29,7 +48,7 @@ public class Blacksmith{
     public int getResourceLimit() { return this.resourceLimit;}
     public int getResourceCount() { return this.resourceCount;}
     public int getActionPeriod() { return this.actionPeriod;}
-    public int getAnimationPeriod() { return this.animationPeriod;}
+    //public int getAnimationPeriod() { return this.animationPeriod;}
 
 
 
@@ -45,32 +64,13 @@ public class Blacksmith{
 
 
 
-    public static Action createAnimationAction(Entity entity, int repeatCount)
-    {
-        return new Action(ActionKind.ANIMATION, entity, null, null, repeatCount);
-    }
-
-    public static Action createActivityAction(Entity entity, WorldModel world,
-                                              ImageStore imageStore)
-    {
-        return new Action(ActionKind.ACTIVITY, entity, world, imageStore, 0);
-    }
-
 
 
     public int getAnimationPeriod()
     {
-        switch (this.getEntityKind())
-        {
-            case MINER_FULL:
-            case MINER_NOT_FULL:
-            case ORE_BLOB:
-            case QUAKE:
+
                 return this.animationPeriod;
-            default:
-                throw new UnsupportedOperationException(
-                        String.format("getAnimationPeriod not supported for %s", this.getEntityKind()));
-        }
+
     }
 
     //edited
@@ -81,61 +81,15 @@ public class Blacksmith{
 
 
 
-
-
-
     public void scheduleActions( EventScheduler scheduler, WorldModel world, ImageStore imageStore)
     {
-        switch (this.kind)
-        {
-            case MINER_FULL:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent(this, createAnimationAction(this, 0),
-                        this.getAnimationPeriod());
-                break;
+        scheduler.scheduleEvent((Entity) this,
+                Activity.createActivityAction(this, world, imageStore),
+                this.actionPeriod);
 
-            case MINER_NOT_FULL:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case ORE:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            case ORE_BLOB:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case QUAKE:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, QUAKE_ANIMATION_REPEAT_COUNT),
-                        this.getAnimationPeriod());
-                break;
-
-            case VEIN:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            default:
-        }
+        scheduler.scheduleEvent(this, new Animation(this,null,null) );
     }
+
 
 
 

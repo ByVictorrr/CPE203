@@ -52,20 +52,10 @@ public class Oreblob{
     //public void setActionPeriod(int a) { this.actionPeriod = a;}
     //public void setAnimationPeriod(int a) {this.animationPeriod = a;}
 
-    public static Action createAnimationAction(Entity entity, int repeatCount)
-    {
-        return new Action(ActionKind.ANIMATION, entity, null, null, repeatCount);
-    }
-
-    public static Action createActivityAction(Entity entity, WorldModel world,
-                                              ImageStore imageStore)
-    {
-        return new Action(ActionKind.ACTIVITY, entity, world, imageStore, 0);
-    }
 
 
-    public boolean moveToOreBlob(Entity blob, WorldModel world,
-                                 Entity target, EventScheduler scheduler)
+
+    public boolean moveToOreBlob(Entity blob, WorldModel world, Entity target, EventScheduler scheduler)
     {
         if (adjacent(blob.position, target.position))
         {
@@ -125,7 +115,7 @@ public class Oreblob{
 
     public  void executeOreBlobActivity( WorldModel world, ImageStore imageStore, EventScheduler scheduler)
     {
-        Optional<Entity> blobTarget = world.findNearest( this.position, EntityKind.VEIN);
+        Optional<Entity> blobTarget = world.findNearest( this.position, Vein.class);
         long nextPeriod = this.actionPeriod;
 
         if (blobTarget.isPresent())
@@ -134,7 +124,7 @@ public class Oreblob{
 
             if (moveToOreBlob(this, world, blobTarget.get(), scheduler))
             {
-                Entity quake = createQuake(tgtPos,
+                Entity quake = Quake.createQuake(tgtPos,
                         Functions.getImageList(imageStore, QUAKE_KEY));
 
                 world.addEntity( quake);
@@ -151,27 +141,15 @@ public class Oreblob{
 
     public int getAnimationPeriod()
     {
-        switch (this.getEntityKind())
-        {
-            case MINER_FULL:
-            case MINER_NOT_FULL:
-            case ORE_BLOB:
-            case QUAKE:
+
                 return this.animationPeriod;
-            default:
-                throw new UnsupportedOperationException(
-                        String.format("getAnimationPeriod not supported for %s", this.getEntityKind()));
-        }
+
     }
 
     //edited
     public void nextImage()
     {
         this.imageIndex = (this.getImageIndex()+ 1) % this.getImages().size();
-    }
-
-
-
 
 
 

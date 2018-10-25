@@ -14,61 +14,54 @@ public class Activity implements Action{
     }
 
 
-    public void executeAction(EventScheduler scheduler) {
-                executeActivityAction(scheduler);
 
+
+    public static Activity createActivityAction(Entity entity, WorldModel world, ImageStore imageStore)
+    {
+        return new Activity(entity, world, imageStore, 0);
     }
 
-    public void executeAnimationAction(EventScheduler scheduler) {
 
-            this.entity.nextImage();
+    //make the excute function gneral to each enitty
 
-        if (this.repeatCount != 1) {
-            scheduler.scheduleEvent(this.entity,
-                    this.entity.createAnimationAction(this.entity,
-                            Math.max(this.repeatCount - 1, 0)),
+    public void execute(EventScheduler scheduler) {
 
-                    this.entity.getAnimationPeriod());
+
+            if(this.entity instanceof MinerFull) {
+
+                (MinerFull) this.entity.execute(this.world,
+                        this.imageStore, scheduler);
+            }
+        if(this.entity instanceof MinerNotFull) {
+
+            (MinerNotFull) this.entity.execute(this.world,
+                    this.imageStore, scheduler);
         }
-    }
+        //depending on the type of enitiy we will cast
 
-    public void executeActivityAction(EventScheduler scheduler) {
-        switch (this.entity.getEntityKind()) {
-            case MINER_FULL:
-                this.entity.executeMinerFullActivity(this.world,
-                        this.imageStore, scheduler);
-                break;
+        if(this.entity instanceof Ore) {
 
-            case MINER_NOT_FULL:
-                this.entity.executeMinerNotFullActivity(this.world,
-                        this.imageStore, scheduler);
-                break;
-
-            case ORE:
-                this.entity.executeOreActivity(this.world, this.imageStore,
-                        scheduler);
-                break;
-
-            case ORE_BLOB:
-                this.entity.executeOreBlobActivity(this.world,
-                        this.imageStore, scheduler);
-                break;
-
-            case QUAKE:
-                this.entity.executeQuakeActivity(this.world, this.imageStore,
-                        scheduler);
-                break;
-
-            case VEIN:
-                this.entity.executeVeinActivity(this.world, this.imageStore,
-                        scheduler);
-                break;
-
-            default:
-                throw new UnsupportedOperationException(
-                        String.format("executeActivityAction not supported for %s",
-                                this.entity.getEntityKind()));
+            (Ore) this.entity.execute(this.world,
+                    this.imageStore, scheduler);
         }
-    }
+        if(this.entity instanceof Oreblob) {
+
+            (Oreblob) this.entity.execute(this.world,
+                    this.imageStore, scheduler);
+        }
+
+        if(this.entity instanceof Quake) {
+
+            (Quake) this.entity.execute(this.world,
+                    this.imageStore, scheduler);
+        }
+
+        if(this.entity instanceof Vein) {
+
+            (Vein)this.entity.execute(this.world,
+                    this.imageStore, scheduler);
+        }
+
+
 
 }
