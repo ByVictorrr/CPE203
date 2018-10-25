@@ -1,3 +1,3 @@
 javac *.java
 
-java LogAnalyzer small.log
+java LogAnalyzer sample.log

@@ -149,13 +149,13 @@ public class LogAnalyzer {
                 double totalPriceForSession = 0.0;
                 double count = 0.0;
                 double avg = 0.0;
-		
-	
+
                 for (View viewCounter : viewList) {
                     totalPriceForSession = totalPriceForSession + viewCounter.getPriceCost();
 
                     count++;
                 }
+
                 avg = totalPriceForSession / count;
 
                 System.out.println(bought.getPriceCost() - avg);
@@ -203,8 +203,8 @@ public class LogAnalyzer {
 
                         //kinda a double for loop for sessions
                         for (String thisSession : sessions) {
-                            List<View> theViews = viewsFromSession.get(thisSession);	
-				if(theViews !=null){
+                            List<View> theViews = viewsFromSession.get(thisSession);
+
                                 for (View thisView : theViews) {
 
                                     if (thisView.getProduct().equals(thisBuy.getProduct())) {
@@ -214,7 +214,6 @@ public class LogAnalyzer {
                                 }
 
                             }
-}
 
                             System.out.println("\t" + count);
 
@@ -235,7 +234,7 @@ public class LogAnalyzer {
             final Map<String, List<Buy>> buysFromSession) {
 
 
-        int count =0;
+        double count =0;
         int sessionNoPurchase=0;
         //print average num of items viewd by vistor(defined by id) that dont make a purchase
         for (Map.Entry<String, List<View>> entry : viewsFromSession.entrySet())
@@ -253,9 +252,8 @@ public class LogAnalyzer {
                         count++;
                     }
                 }
-		else{sessionNoPurchase--;}
             }
-            double average = ((double)count)/sessionNoPurchase;
+            double average = count/sessionNoPurchase;
 
             System.out.println("Average Views Without Purchase: " + average);
 
