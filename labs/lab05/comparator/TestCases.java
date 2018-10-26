@@ -99,6 +99,26 @@ public class TestCases
    @Test
    public void testComposedComparator()
    {
+
+	Comparator<Song> c1 = Comparator.comparing(Song::geTitle);
+	Comparator<Song> c2 = Comparator.comparing(Song::Year);
+
+	ComposedComparator comp = new ComposedComparator(c1,c2);
+	
+	comp.compare(songs[0],songs[1]);
+
+	
+
+	int [] compareTest = { 
+ 
+
+};
+
+
+
+
+
+
    }
 
    @Test
