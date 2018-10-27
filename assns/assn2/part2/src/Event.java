@@ -1,3 +1,5 @@
+import sun.corba.EncapsInputStreamFactory;
+
 final class Event
 {
    private Action action;
@@ -18,6 +20,7 @@ final class Event
    public void setEntity(Entity entity) {
       this.entity = entity;
    }
-
-
+   public Entity getEntity(){return entity;}
+   public Action getAction(){return action;}
+   public long getTime(){return time;}
 }

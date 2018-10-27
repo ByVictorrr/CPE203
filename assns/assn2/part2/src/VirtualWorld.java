@@ -109,7 +109,7 @@ public final class VirtualWorld
    public static Background createDefaultBackground(ImageStore imageStore)
    {
       return new Background(DEFAULT_IMAGE_NAME,
-         Background.getCurrentImage(imageStore, DEFAULT_IMAGE_NAME));
+         ImageStore.getImageList(imageStore, DEFAULT_IMAGE_NAME));
    }
 
    public static PImage createImageColored(int width, int height, int color)
@@ -155,9 +155,10 @@ public final class VirtualWorld
    public static void scheduleActions(WorldModel world,
       EventScheduler scheduler, ImageStore imageStore)
    {
-      for (Entity entity : world.getEntities())
-      {
-         entity.scheduleActions( scheduler, world, imageStore);
+      for (Entity entity : world.getEntities()) {
+          if (entity instanceof Executable) {
+              ((Executable) entity).scheduleActions(scheduler, world, imageStore);
+          }
       }
    }
 

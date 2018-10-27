@@ -1,8 +1,5 @@
-public interface Moveable extends Entity {
-
-    Point position();
-    Point nextPosition();
-    void move();
+public interface Moveable extends  Animationable{
+    Point nextPosition( WorldModel world, Point destPos);
 
 
 }

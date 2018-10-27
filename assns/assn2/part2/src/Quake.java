@@ -1,9 +1,8 @@
 import processing.core.PImage;
 
 import java.util.List;
-import java.util.Optional;
 
-public class Quake{
+public class Quake implements Animationable{
 
 
     public static final String QUAKE_KEY = "quake";
@@ -20,10 +19,25 @@ public class Quake{
     private int resourceCount;
     private int actionPeriod;
     private int animationPeriod;
+    private String id;
 
-    public static Entity createQuake(Point position, List<PImage> images)
+
+    public Quake(String id, Point position,
+                   List<PImage> images, int resourceLimit, int resourceCount,
+                   int actionPeriod, int animationPeriod) {
+        this.id = id;
+        this.position = position;
+        this.images = images;
+        this.imageIndex = 0;
+        this.resourceLimit = resourceLimit;
+        this.resourceCount = resourceCount;
+        this.actionPeriod = actionPeriod;
+        this.animationPeriod = animationPeriod;
+    }
+
+    public static Quake createQuake(Point position, List<PImage> images)
     {
-        return new Entity(EntityKind.QUAKE, QUAKE_ID, position, images,
+     return new Quake(QUAKE_ID, position, images,
                 0, 0, QUAKE_ACTION_PERIOD, QUAKE_ANIMATION_PERIOD);
     }
 
@@ -50,8 +64,7 @@ public class Quake{
 
 
 
-    public void executeQuakeActivity( WorldModel world,
-                                      ImageStore imageStore, EventScheduler scheduler)
+    public void execute( WorldModel world, ImageStore imageStore, EventScheduler scheduler)
     {
         scheduler.unscheduleAllEvents( this);
         world.removeEntity(this);
@@ -66,17 +79,7 @@ public class Quake{
 
     public int getAnimationPeriod()
     {
-        switch (this.getEntityKind())
-        {
-            case MINER_FULL:
-            case MINER_NOT_FULL:
-            case ORE_BLOB:
-            case QUAKE:
-                return this.animationPeriod;
-            default:
-                throw new UnsupportedOperationException(
-                        String.format("getAnimationPeriod not supported for %s", this.getEntityKind()));
-        }
+        return this.animationPeriod;
     }
 
     //edited
@@ -89,58 +92,11 @@ public class Quake{
 
 
 
-
-
-    public void scheduleActions( EventScheduler scheduler, WorldModel world, ImageStore imageStore)
-    {
-        switch (this.kind)
-        {
-            case MINER_FULL:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent(this, createAnimationAction(this, 0),
-                        this.getAnimationPeriod());
-                break;
-
-            case MINER_NOT_FULL:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case ORE:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            case ORE_BLOB:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case QUAKE:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, QUAKE_ANIMATION_REPEAT_COUNT),
-                        this.getAnimationPeriod());
-                break;
-
-            case VEIN:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            default:
-        }
+    public void scheduleActions( EventScheduler scheduler, WorldModel world, ImageStore imageStore) {
+        scheduler.scheduleEvent(this, Activity.createActivityAction(this, world, imageStore), this.actionPeriod);
+        scheduler.scheduleEvent(this, Animation.createAnimationAction(this, QUAKE_ANIMATION_REPEAT_COUNT), this.getAnimationPeriod());
     }
-}
+
+
+    }
+

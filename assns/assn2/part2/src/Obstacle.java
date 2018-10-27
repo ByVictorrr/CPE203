@@ -2,7 +2,7 @@ import processing.core.PImage;
 
 import java.util.List;
 
-public class Obstacle{
+public class Obstacle implements Entity{
 
 
     private Point position;
@@ -12,12 +12,28 @@ public class Obstacle{
     private int resourceCount;
     private int actionPeriod;
     private int animationPeriod;
+    private String id;
 
 
-    public static Entity createObstacle(String id, Point position,
+    public Obstacle(String id, Point position,
+                        List<PImage> images, int resourceLimit, int resourceCount,
+                        int actionPeriod, int animationPeriod) {
+        this.id = id;
+        this.position = position;
+        this.images = images;
+        this.imageIndex = 0;
+        this.resourceLimit = resourceLimit;
+        this.resourceCount = resourceCount;
+        this.actionPeriod = actionPeriod;
+        this.animationPeriod = animationPeriod;
+    }
+
+
+
+    public static Obstacle createObstacle(String id, Point position,
                                         List<PImage> images)
     {
-        return new Entity(EntityKind.OBSTACLE, id, position, images,
+        return new Obstacle( id, position, images,
                 0, 0, 0, 0);
     }
 
@@ -45,33 +61,10 @@ public class Obstacle{
 
 
 
-    public static Action createAnimationAction(Entity entity, int repeatCount)
-    {
-        return new Action(ActionKind.ANIMATION, entity, null, null, repeatCount);
-    }
-
-    public static Action createActivityAction(Entity entity, WorldModel world,
-                                              ImageStore imageStore)
-    {
-        return new Action(ActionKind.ACTIVITY, entity, world, imageStore, 0);
-    }
 
 
 
-    public int getAnimationPeriod()
-    {
-        switch (this.getEntityKind())
-        {
-            case MINER_FULL:
-            case MINER_NOT_FULL:
-            case ORE_BLOB:
-            case QUAKE:
-                return this.animationPeriod;
-            default:
-                throw new UnsupportedOperationException(
-                        String.format("getAnimationPeriod not supported for %s", this.getEntityKind()));
-        }
-    }
+    public int getAnimationPeriod() { return this.animationPeriod; }
 
     //edited
     public void nextImage()
@@ -85,58 +78,6 @@ public class Obstacle{
 
 
 
-    public void scheduleActions( EventScheduler scheduler, WorldModel world, ImageStore imageStore)
-    {
-        switch (this.kind)
-        {
-            case MINER_FULL:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent(this, createAnimationAction(this, 0),
-                        this.getAnimationPeriod());
-                break;
-
-            case MINER_NOT_FULL:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case ORE:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            case ORE_BLOB:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case QUAKE:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, QUAKE_ANIMATION_REPEAT_COUNT),
-                        this.getAnimationPeriod());
-                break;
-
-            case VEIN:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            default:
-        }
-    }
 
 
 }

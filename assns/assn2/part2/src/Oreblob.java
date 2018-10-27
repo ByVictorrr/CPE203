@@ -3,14 +3,13 @@ import processing.core.PImage;
 import java.util.List;
 import java.util.Optional;
 
-public class Oreblob{
+public class Oreblob implements Moveable{
 
-    public static final String BLOB_KEY = "blob";
-    public static final String BLOB_ID_SUFFIX = " -- blob";
-    public static final int BLOB_PERIOD_SCALE = 4;
-    public static final int BLOB_ANIMATION_MIN = 50;
-    public static final int BLOB_ANIMATION_MAX = 150;
 
+
+
+    public static final String QUAKE_KEY = "quake";
+    public static final String QUAKE_ID = "quake";
 
 
     private Point position;
@@ -20,12 +19,26 @@ public class Oreblob{
     private int resourceCount;
     private int actionPeriod;
     private int animationPeriod;
+    private String id;
 
 
-    public static Entity createOreBlob(String id, Point position,
+    public Oreblob(String id, Point position,
+               List<PImage> images, int resourceLimit, int resourceCount,
+               int actionPeriod, int animationPeriod) {
+        this.id = id;
+        this.position = position;
+        this.images = images;
+        this.imageIndex = 0;
+        this.resourceLimit = resourceLimit;
+        this.resourceCount = resourceCount;
+        this.actionPeriod = actionPeriod;
+        this.animationPeriod = animationPeriod;
+    }
+
+    public static Oreblob createOreBlob(String id, Point position,
                                        int actionPeriod, int animationPeriod, List<PImage> images)
     {
-        return new Entity(EntityKind.ORE_BLOB, id, position, images,
+        return new Oreblob( id, position, images,
                 0, 0, actionPeriod, animationPeriod);
     }
 
@@ -55,9 +68,9 @@ public class Oreblob{
 
 
 
-    public boolean moveToOreBlob(Entity blob, WorldModel world, Entity target, EventScheduler scheduler)
+    public boolean moveToOreBlob( WorldModel world, Entity target, EventScheduler scheduler)
     {
-        if (adjacent(blob.position, target.position))
+        if (Point.adjacent(this.getPosition(), target.getPosition()))
         {
             world.removeEntity(target);
             scheduler.unscheduleAllEvents( target);
@@ -65,9 +78,9 @@ public class Oreblob{
         }
         else
         {
-            Point nextPos = blob.nextPositionOreBlob( world, target.position);
+            Point nextPos = this.nextPosition( world, target.getPosition());
 
-            if (!blob.position.equals(nextPos))
+            if (!this.position.equals(nextPos))
             {
                 Optional<Entity> occupant = world.getOccupant( nextPos);
                 if (occupant.isPresent())
@@ -75,7 +88,7 @@ public class Oreblob{
                     scheduler.unscheduleAllEvents(occupant.get());
                 }
 
-                world.moveEntity(blob, nextPos);
+                world.moveEntity(this, nextPos);
             }
             return false;
         }
@@ -83,7 +96,7 @@ public class Oreblob{
 
 
 
-    public Point nextPositionOreBlob( WorldModel world, Point destPos)
+    public Point nextPosition( WorldModel world, Point destPos)
     {
         int horiz = Integer.signum(destPos.x - this.position.x);
         Point newPos = new Point(this.position.x + horiz,
@@ -92,14 +105,14 @@ public class Oreblob{
         Optional<Entity> occupant = world.getOccupant( newPos);
 
         if (horiz == 0 ||
-                (occupant.isPresent() && !(occupant.get().kind == EntityKind.ORE)))
+                (occupant.isPresent() && !(occupant.get().getClass() == Ore.class )))
         {
             int vert = Integer.signum(destPos.y - this.position.y);
             newPos = new Point(this.position.x, this.position.y + vert);
             occupant = world.getOccupant( newPos);
 
-            if (vert == 0 ||
-                    (occupant.isPresent() && !(occupant.get().kind == EntityKind.ORE)))
+            if ((vert == 0) ||
+                    (occupant.isPresent() && !(occupant.get().getClass() == Ore.class)))
             {
                 newPos = this.position;
             }
@@ -113,97 +126,48 @@ public class Oreblob{
 
 
 
-    public  void executeOreBlobActivity( WorldModel world, ImageStore imageStore, EventScheduler scheduler)
+    public  void execute( WorldModel world, ImageStore imageStore, EventScheduler scheduler)
     {
         Optional<Entity> blobTarget = world.findNearest( this.position, Vein.class);
         long nextPeriod = this.actionPeriod;
 
         if (blobTarget.isPresent())
         {
-            Point tgtPos = blobTarget.get().position;
+            Point tgtPos = blobTarget.get().getPosition();
 
-            if (moveToOreBlob(this, world, blobTarget.get(), scheduler))
+            if (moveToOreBlob(world, blobTarget.get(), scheduler))
             {
                 Entity quake = Quake.createQuake(tgtPos,
+
                         Functions.getImageList(imageStore, QUAKE_KEY));
 
                 world.addEntity( quake);
                 nextPeriod += this.actionPeriod;
-                quake.scheduleActions( scheduler, world, imageStore);
+                ((Quake)quake).scheduleActions( scheduler, world, imageStore);
             }
         }
 
         scheduler.scheduleEvent( this,
-                createActivityAction(this, world, imageStore),
+                Activity.createActivityAction(this, world, imageStore),
                 nextPeriod);
     }
 
 
-    public int getAnimationPeriod()
-    {
-
-                return this.animationPeriod;
-
-    }
+    public int getAnimationPeriod() { return this.animationPeriod; }
 
     //edited
-    public void nextImage()
-    {
-        this.imageIndex = (this.getImageIndex()+ 1) % this.getImages().size();
+    public void nextImage() {
+        this.imageIndex = (this.getImageIndex() + 1) % this.getImages().size();}
 
 
 
-
-    public void scheduleActions( EventScheduler scheduler, WorldModel world, ImageStore imageStore)
-    {
-        switch (this.kind)
+        public void scheduleActions (EventScheduler scheduler, WorldModel world, ImageStore imageStore)
         {
-            case MINER_FULL:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent(this, createAnimationAction(this, 0),
-                        this.getAnimationPeriod());
-                break;
-
-            case MINER_NOT_FULL:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case ORE:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            case ORE_BLOB:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case QUAKE:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, QUAKE_ANIMATION_REPEAT_COUNT),
-                        this.getAnimationPeriod());
-                break;
-
-            case VEIN:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            default:
+            scheduler.scheduleEvent(this,
+                    Activity.createActivityAction(this, world, imageStore),
+                    this.actionPeriod);
+            scheduler.scheduleEvent(this,
+                    Animation.createAnimationAction(this, 0), this.getAnimationPeriod());
         }
+
     }
-}

@@ -1,3 +1,10 @@
+
+
+
+
+
+
+
 public class Activity implements Action{
 
 
@@ -24,44 +31,47 @@ public class Activity implements Action{
 
     //make the excute function gneral to each enitty
 
-    public void execute(EventScheduler scheduler) {
+    public void executeAction(EventScheduler scheduler) {
 
 
             if(this.entity instanceof MinerFull) {
 
-                (MinerFull) this.entity.execute(this.world,
+                ((MinerFull) this.entity).execute(this.world,
                         this.imageStore, scheduler);
             }
         if(this.entity instanceof MinerNotFull) {
 
-            (MinerNotFull) this.entity.execute(this.world,
+            ((MinerNotFull) this.entity).execute(this.world,
                     this.imageStore, scheduler);
         }
         //depending on the type of enitiy we will cast
 
         if(this.entity instanceof Ore) {
 
-            (Ore) this.entity.execute(this.world,
+            ((Ore) this.entity).execute(this.world,
                     this.imageStore, scheduler);
         }
         if(this.entity instanceof Oreblob) {
 
-            (Oreblob) this.entity.execute(this.world,
+            ((Oreblob) this.entity).execute(this.world,
                     this.imageStore, scheduler);
         }
 
-        if(this.entity instanceof Quake) {
 
-            (Quake) this.entity.execute(this.world,
+       if(this.entity instanceof Quake) {
+
+           ((Quake) this.entity).execute(this.world,
                     this.imageStore, scheduler);
         }
+
 
         if(this.entity instanceof Vein) {
 
-            (Vein)this.entity.execute(this.world,
+            ((Vein)this.entity).execute(this.world,
                     this.imageStore, scheduler);
         }
 
 
-
 }
+
+    }

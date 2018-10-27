@@ -16,7 +16,6 @@ public class Blacksmith implements Entity{
 
 
 
-
     public Blacksmith( String id, Point position,
                   List<PImage> images, int resourceLimit, int resourceCount,
                   int actionPeriod, int animationPeriod)
@@ -33,8 +32,6 @@ public class Blacksmith implements Entity{
 
 
 
-
-
     public static Blacksmith createBlacksmith(String id, Point position,
                                           List<PImage> images)
     {
@@ -43,6 +40,7 @@ public class Blacksmith implements Entity{
     }
 
     public Point getPosition() { return this.position;}
+
     public List<PImage> getImages() { return this.images;}
     public int getImageIndex() { return this.imageIndex;}
     public int getResourceLimit() { return this.resourceLimit;}
@@ -62,32 +60,11 @@ public class Blacksmith implements Entity{
     public void setAnimationPeriod(int a) {this.animationPeriod = a;}
 
 
+    public int getAnimationPeriod() { return this.animationPeriod; }
 
-
-
-
-    public int getAnimationPeriod()
-    {
-
-                return this.animationPeriod;
-
-    }
-
-    //edited
     public void nextImage()
     {
         this.imageIndex = (this.getImageIndex()+ 1) % this.getImages().size();
-    }
-
-
-
-    public void scheduleActions( EventScheduler scheduler, WorldModel world, ImageStore imageStore)
-    {
-        scheduler.scheduleEvent((Entity) this,
-                Activity.createActivityAction(this, world, imageStore),
-                this.actionPeriod);
-
-        scheduler.scheduleEvent(this, new Animation(this,null,null) );
     }
 
 

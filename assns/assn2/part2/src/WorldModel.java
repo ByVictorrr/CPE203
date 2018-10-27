@@ -13,9 +13,10 @@ final class WorldModel
 
 
 
-
-
-
+   public static final String ORE_ID_PREFIX = "ore -- ";
+   public static final int ORE_CORRUPT_MIN = 20000;
+   public static final int ORE_CORRUPT_MAX = 30000;
+   public static final int ORE_REACH = 1;
 
 
 
@@ -220,9 +221,9 @@ final class WorldModel
 
    public Optional<Point> findOpenAround( Point pos)
    {
-      for (int dy = -Entity.ORE_REACH; dy <= Entity.ORE_REACH; dy++)
+      for (int dy = -ORE_REACH; dy <= ORE_REACH; dy++)
       {
-         for (int dx = -Entity.ORE_REACH; dx <= Entity.ORE_REACH; dx++)
+         for (int dx = -ORE_REACH; dx <= ORE_REACH; dx++)
          {
             Point newPt = new Point(pos.x + dx, pos.y + dy);
             if (withinBounds( newPt) &&

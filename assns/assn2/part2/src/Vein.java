@@ -1,11 +1,16 @@
+import com.sun.corba.se.spi.legacy.interceptor.ORBInitInfoExt;
 import processing.core.PImage;
 
 import java.util.List;
 import java.util.Optional;
 
-public class Vein {
+public class Vein implements Executable{
 
+    public static final String ORE_ID_PREFIX = "ore -- ";
+    public static final int ORE_CORRUPT_MIN = 20000;
+    public static final int ORE_CORRUPT_MAX = 30000;
 
+    public static final String ORE_KEY = "ore";
 
     private Point position;
     private List<PImage> images;
@@ -14,13 +19,24 @@ public class Vein {
     private int resourceCount;
     private int actionPeriod;
     private int animationPeriod;
+    private String id;
 
+    public Vein(String id, Point position,
+                 List<PImage> images, int resourceLimit, int resourceCount,
+                 int actionPeriod, int animationPeriod) {
+        this.id = id;
+        this.position = position;
+        this.images = images;
+        this.imageIndex = 0;
+        this.resourceLimit = resourceLimit;
+        this.resourceCount = resourceCount;
+        this.actionPeriod = actionPeriod;
+        this.animationPeriod = animationPeriod;
+    }
 
-
-
-    public static Entity createVein(String id, Point position, int actionPeriod,
+    public static Vein createVein(String id, Point position, int actionPeriod,
                                     List<PImage> images) {
-        return new Entity(EntityKind.VEIN, id, position, images, 0, 0,
+        return new Vein( id, position, images, 0, 0,
                 actionPeriod, 0);
     }
 
@@ -55,33 +71,23 @@ public class Vein {
 
         if (openPt.isPresent())
         {
-            Entity ore = createOre(ORE_ID_PREFIX + this.id,
+            Entity ore = Ore.createOre(ORE_ID_PREFIX + this.id,
                     openPt.get(), ORE_CORRUPT_MIN +
                             Functions.rand.nextInt(ORE_CORRUPT_MAX - ORE_CORRUPT_MIN),
                     Functions.getImageList(imageStore, ORE_KEY));
             world.addEntity(ore);
-            ore.scheduleActions( scheduler, world, imageStore);
+            ((Ore)ore).scheduleActions( scheduler, world, imageStore);
         }
 
         scheduler.scheduleEvent( this,
-                createActivityAction(this, world, imageStore),
+                Activity.createActivityAction(this, world, imageStore),
                 this.actionPeriod);
     }
 
 
     public int getAnimationPeriod()
     {
-        switch (this.getEntityKind())
-        {
-            case MINER_FULL:
-            case MINER_NOT_FULL:
-            case ORE_BLOB:
-            case QUAKE:
                 return this.animationPeriod;
-            default:
-                throw new UnsupportedOperationException(
-                        String.format("getAnimationPeriod not supported for %s", this.getEntityKind()));
-        }
     }
 
     //edited
@@ -91,64 +97,14 @@ public class Vein {
     }
 
 
-
-
-
-
-
     public void scheduleActions( EventScheduler scheduler, WorldModel world, ImageStore imageStore)
     {
-        switch (this.kind)
-        {
-            case MINER_FULL:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent(this, createAnimationAction(this, 0),
-                        this.getAnimationPeriod());
-                break;
 
-            case MINER_NOT_FULL:
                 scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
+                        Activity.createActivityAction(this, world, imageStore),
                         this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
 
-            case ORE:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            case ORE_BLOB:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, 0), this.getAnimationPeriod());
-                break;
-
-            case QUAKE:
-                scheduler.scheduleEvent(this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                scheduler.scheduleEvent( this,
-                        createAnimationAction(this, QUAKE_ANIMATION_REPEAT_COUNT),
-                        this.getAnimationPeriod());
-                break;
-
-            case VEIN:
-                scheduler.scheduleEvent( this,
-                        createActivityAction(this, world, imageStore),
-                        this.actionPeriod);
-                break;
-
-            default:
-        }
     }
-
 
 
 }

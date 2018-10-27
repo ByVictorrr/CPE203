@@ -1,4 +1,3 @@
-import javax.swing.Action;
 
 public class Animation implements Action{
 
@@ -9,8 +8,7 @@ public class Animation implements Action{
     private ImageStore imageStore;
     private int repeatCount;
 
-    public Animation(Entity entity, WorldModel world,
-                     ImageStore imageStore)
+    public Animation(Entity entity, WorldModel world, ImageStore imageStore, int repeatCount)
     {
         this.entity = entity;
         this.world = world;
@@ -26,19 +24,14 @@ public class Animation implements Action{
 
 
 
-    public  void execute(EventScheduler scheduler)
+    public  void executeAction(EventScheduler scheduler)
     {
         this.entity.nextImage();
 
         if (this.repeatCount != 1)
         {
-            scheduler.scheduleEvent(this.entity,
-                    createAnimationAction(this.entity,
-                            Math.max(this.repeatCount - 1, 0)),
-
-                    this.entity.getAnimationPeriod());
+            scheduler.scheduleEvent(this.entity, createAnimationAction(this.entity, Math.max(this.repeatCount - 1, 0) ), this.entity.getAnimationPeriod());
         }
     }
-
 
 }
