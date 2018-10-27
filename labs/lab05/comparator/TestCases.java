@@ -39,13 +39,14 @@ public class TestCases
 	
 	}
 
+
    @Test
    public void testLambdaTitleComparator()
    {
-   	//return N<0 when s1 has string title of natural order higher than s2
+   	
 
    	// lambda = int compare (Song s1, Song s2 ){return s1.getTitle() - s2.gettitle();} 
-   	Comparator<Song> lambda = (Song s1, Song s2) -> {return (int)(s1.getTitle().charAt(0)) - (int)(s2.getTitle().charAt(0)) ;} ; 
+   	Comparator<Song> lambda = (Song s1, Song s2) -> {return s1.getArtist().compareTo(s2.getArtist());   } ; 
  	
 
    	//true, true, true
@@ -63,7 +64,7 @@ public class TestCases
    {
    	//write a few test cases test a compartor <song> ordering by year in descending order (in other words most recent songs woulb be first)
 
-   	Comparator<Song> compKeyExtractor = Comparator.comparing(Song::getYear); //tells compare method to sort by natural order of year
+   	Comparator<Song> compKeyExtractor = Compator.comparingInt(Song::getYear);   //ells compare method to sort by natural order of year
 
    	compKeyExtractor  = compKeyExtractor.reversed();
 
@@ -80,12 +81,6 @@ public class TestCases
   	assertEquals(true, testCompare[0]);
   	assertEquals(true, testCompare[1]);
 
-   	//should be neg
-   	//System.out.println(compareTest[0]);
-
-
-	//assertEquals(true, [0]);
-
    }
 
    @Test
@@ -93,34 +88,47 @@ public class TestCases
    {
 
 	Comparator<Song> c1 = Comparator.comparing(Song::geTitle);
-	Comparator<Song> c2 = Comparator.comparing(Song::Year);
+	Comparator<Song> c2 = Comparator.comparing(Song::getYear);
 
 	ComposedComparator comp = new ComposedComparator(c1,c2);
 	
-	comp.compare(songs[0],songs[1]);
+////-----------ForTesting-----------------------------
+	//={-N, +x}
+	int [] compareTest = { 	comp.compare(songs[7],songs[6]), comp.compare(songs[5],songs[7])  };
 
-	
+	boolean [] testCompare = { compareTest[0] < 0 , compareTest[1] > 0};
 
-	int [] compareTest = { 
- 
-
-};
-
-
-
-
-
+	assertEquals(true, testCompare[0]);
+	assertEquals(true, testCompare[1]);
 
    }
 
    @Test
    public void testThenComparing()
    {
+
+   	Comparator<Song> compKeyExtractor = comparing(Song::geTitle).ThenComparing(Song::getArtist);
+	
+	///-----------ForTesting-----------------------------
+	//={-N, +x}
+	int [] compareTest = { 	compKeyExtractor.compare(songs[7],songs[6]), compKeyExtractor.compare(songs[5],songs[7])  };
+
+	boolean [] testCompare = { compareTest[0] < 0 , compareTest[1] < 0};
+
+	assertEquals(true, testCompare[0]);
+	assertEquals(true, testCompare[1]);
+
+
+
    }
 
- /*  @Test
+  @Test
    public void runSort()
    {
+
+	Compartator <Song> compSort = (Song s1, Song s2)->{}.ThenComparing():
+
+
       List<Song> songList = new ArrayList<>(Arrays.asList(songs));
       List<Song> expectedList = Arrays.asList(
          new Song("Avett Brothers", "Talk on Indolence", 2006),
@@ -133,9 +141,7 @@ public class TestCases
          new Song("Rogue Wave", "Love's Lost Guarantee", 2005)
          );
 
-      songList.sort(
-         // pass comparator here
-      );
+      songList.sort(songList, /*compartator*/);
 
       assertEquals(songList, expectedList);
    }
