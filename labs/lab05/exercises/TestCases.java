@@ -43,7 +43,7 @@ public class TestCases
 
    private LongSupplier getNumberGenerator()
    {
-      int number[] = {0};
+      int number[] = {8};
 
       return () -> number[0]++;
    }
@@ -57,7 +57,7 @@ public class TestCases
    @Test
    public void testExercise1()
    {
-      final LongUnaryOperator func = x -> x + 1;
+      final LongUnaryOperator func = x -> x - 7;
 
       assertEquals(0, func.applyAsLong(7));
    }
