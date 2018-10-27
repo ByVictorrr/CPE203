@@ -50,7 +50,7 @@ public class TestCases
  	
 
    	//true, true, true
- 	boolean [] testCompare = { lambda.compare(songs[3],songs[0]) < 0 , lambda.compare(songs[5],songs[6]) == 0  , lambda.compare(songs[0],songs[7]) > 0};
+ 	boolean [] testCompare = { lambda.compare(songs[3],songs[0]) > 0 , lambda.compare(songs[5],songs[6]) <  0  , lambda.compare(songs[0],songs[7]) < 0};
 
 
    	assertEquals(true, testCompare[0]);
@@ -64,7 +64,7 @@ public class TestCases
    {
    	//write a few test cases test a compartor <song> ordering by year in descending order (in other words most recent songs woulb be first)
 
-   	Comparator<Song> compKeyExtractor = Compator.comparingInt(Song::getYear);   //ells compare method to sort by natural order of year
+   	Comparator<Song> compKeyExtractor = Comparator.comparingInt(Song::getYear);   //ells compare method to sort by natural order of year
 
    	compKeyExtractor  = compKeyExtractor.reversed();
 
@@ -87,7 +87,7 @@ public class TestCases
    public void testComposedComparator()
    {
 
-	Comparator<Song> c1 = Comparator.comparing(Song::geTitle);
+	Comparator<Song> c1 = Comparator.comparing(Song::getTitle);
 	Comparator<Song> c2 = Comparator.comparing(Song::getYear);
 
 	ComposedComparator comp = new ComposedComparator(c1,c2);
@@ -107,7 +107,7 @@ public class TestCases
    public void testThenComparing()
    {
 
-   	Comparator<Song> compKeyExtractor = comparing(Song::geTitle).ThenComparing(Song::getArtist);
+   	Comparator<Song> compKeyExtractor = (Comparator.comparing(Song::getTitle)).thenComparing(Song::getArtist);
 	
 	///-----------ForTesting-----------------------------
 	//={-N, +x}
@@ -123,10 +123,12 @@ public class TestCases
    }
 
   @Test
-   public void runSort()
+  public void runSort()
    {
-
-	Compartator <Song> compSort = (Song s1, Song s2)->{}.ThenComparing():
+	//sort by aritish,title,year(each in ascending order)
+	Comparator <Song> compSort = ((Comparator.comparing(Song::getArtist)).
+			              thenComparing(Song::getTitle)).
+				      thenComparing(Song::getYear);
 
 
       List<Song> songList = new ArrayList<>(Arrays.asList(songs));
@@ -141,9 +143,12 @@ public class TestCases
          new Song("Rogue Wave", "Love's Lost Guarantee", 2005)
          );
 
-      songList.sort(songList, /*compartator*/);
+      songList.sort( compSort);
 
       assertEquals(songList, expectedList);
    }
-   */
+  
+
+
+
 }
