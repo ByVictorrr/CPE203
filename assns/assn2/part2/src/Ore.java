@@ -38,7 +38,7 @@ public class Ore implements Executable {
         this.animationPeriod = animationPeriod;
     }
 
-    public static Entity createOre(String id, Point position, int actionPeriod,
+    public static Ore createOre(String id, Point position, int actionPeriod,
                                    List<PImage> images) {
         return new Ore(id, position, images, 0, 0,
                 actionPeriod, 0);

@@ -1,5 +1,4 @@
 import processing.core.PImage;
-import sun.util.resources.cldr.es.CalendarData_es_NI;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,11 +28,10 @@ public class MinerNotFull implements Moveable{
         this.animationPeriod = animationPeriod;
     }
 
+
     public static MinerNotFull createMinerNotFull(String id, int resourceLimit, Point position, int actionPeriod, int animationPeriod, List<PImage> images) {
         return new MinerNotFull(id, position, images, resourceLimit, 0, actionPeriod, animationPeriod);
     }
-
-
 
 
 

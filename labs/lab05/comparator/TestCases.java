@@ -27,18 +27,10 @@ public class TestCases
    public void testArtistComparator()
    {
 
-
-   System.out.println((int)'A');
-	System.out.println((int)'D');
-   
-//as A.....Z -> 65 66 ..... N
-
    Comparator <Song> compArtist = new ArtistComparator();
-
    							// true,true,true 
    boolean [] testCompare = { compArtist.compare(songs[0],songs[1]) < 0 , compArtist.compare(songs[5],songs[4]) > 0 , compArtist.compare(songs[3],songs[7]) == 0};
 
-   
  	assertEquals(true,testCompare[0]);
 
  	assertEquals(true,testCompare[1]);
