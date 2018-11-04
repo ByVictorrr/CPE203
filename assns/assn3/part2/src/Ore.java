@@ -3,7 +3,7 @@ import processing.core.PImage;
 import java.util.List;
 import java.util.Optional;
 
-public class Ore extends Activated{
+public class Ore extends Actioned{
 
 
     public static final String BLOB_KEY = "blob";
@@ -11,8 +11,6 @@ public class Ore extends Activated{
     public static final int BLOB_PERIOD_SCALE = 4;
     public static final int BLOB_ANIMATION_MIN = 50;
     public static final int BLOB_ANIMATION_MAX = 150;
-
-
 
 
 
@@ -43,7 +41,7 @@ public class Ore extends Activated{
                 pos, this.actionPeriod / BLOB_PERIOD_SCALE,
                 BLOB_ANIMATION_MIN +
                         Functions.rand.nextInt(BLOB_ANIMATION_MAX - BLOB_ANIMATION_MIN),
-                Functions.getImageList(imageStore, BLOB_KEY));
+                ImageStore.getImageList(imageStore, BLOB_KEY));
 
         world.addEntity(blob);
         ((Oreblob) blob).scheduleActions(scheduler, world, imageStore);

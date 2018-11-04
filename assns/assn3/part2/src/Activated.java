@@ -4,7 +4,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane;
 import java.lang.reflect.Executable;
 import java.util.List;
 
-abstract public class Activated extends Actioned{
+public class Activated extends Actioned{
 
 
 

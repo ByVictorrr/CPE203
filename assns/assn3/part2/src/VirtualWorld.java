@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -109,7 +110,7 @@ public final class VirtualWorld
    public static Background createDefaultBackground(ImageStore imageStore)
    {
       return new Background(DEFAULT_IMAGE_NAME,
-         ImageStore.getImageList(imageStore, DEFAULT_IMAGE_NAME));
+              ImageStore.getImageList(imageStore, DEFAULT_IMAGE_NAME));
    }
 
    public static PImage createImageColored(int width, int height, int color)
@@ -130,7 +131,7 @@ public final class VirtualWorld
       try
       {
          Scanner in = new Scanner(new File(filename));
-         Functions.loadImages(in, imageStore, screen);
+         ImageStore.loadImages(in, imageStore, screen);
       }
       catch (FileNotFoundException e)
       {

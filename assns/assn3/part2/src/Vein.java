@@ -36,7 +36,7 @@ public class Vein extends Animated{
             Entity ore = Ore.createOre(ORE_ID_PREFIX + super.id,
                     openPt.get(), ORE_CORRUPT_MIN +
                             Functions.rand.nextInt(ORE_CORRUPT_MAX - ORE_CORRUPT_MIN),
-                    Functions.getImageList(imageStore, ORE_KEY));
+                    ImageStore.getImageList(imageStore, ORE_KEY));
 
             world.addEntity(ore);
             ((Ore)ore).scheduleActions( scheduler, world, imageStore);
