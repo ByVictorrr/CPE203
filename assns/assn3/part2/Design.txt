@@ -1,0 +1,9 @@
+create*(): Enities: The * represents a wild card. I moved them in the Entity class and set them as static members because there is only one type of those specific enities. I also the miner, quake, ..., vein should have their own classes also.
+
+
+getImageList() && : I left this function in the functions.java file because I had little knowledge of what it did with the many others below.
+
+
+moveEntity(): I associated this function with the class WorldModel because the worldModel is the overall picture that can moves this entity checking if its in the worlds boundaries which is a characteristic of the class.
+
+worldToViewport() and viewToWorld(): I put static for this function because there is only one viewport and one world in this program.
