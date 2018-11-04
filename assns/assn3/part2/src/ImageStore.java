@@ -10,7 +10,7 @@ final class ImageStore
    public List<PImage> defaultImages;
 
    public ImageStore(PImage defaultImage)
-i   {
+   {
       this.images = new HashMap<>();
       defaultImages = new LinkedList<>();
       defaultImages.add(defaultImage);
@@ -19,5 +19,5 @@ i   {
 
    public static List<PImage> getImageList(ImageStore imageStore, String key) {
       return imageStore.images.getOrDefault(key, imageStore.defaultImages);
- i  }
+   }
 }

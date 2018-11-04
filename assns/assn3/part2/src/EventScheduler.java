@@ -56,16 +56,20 @@ final class EventScheduler
       }
    }
 
-   public  void updateOnTime( long time)
+   public  void updateOnTime(long time)
    {
-      while (!this.eventQueue.isEmpty() &&
-              this.eventQueue.peek().getTime() < time)
+      while (!eventQueue.isEmpty() &&
+              eventQueue.peek().getTime() < time)
       {
          Event next = this.eventQueue.poll();
 
          removePendingEvent( next);
 
-         next.getAction().executeAction( this);
+         next.getAction().executeAction(this);
+
+
+
+
       }
    }
 

@@ -3,28 +3,23 @@ import processing.core.PImage;
 import java.util.List;
 import java.util.Optional;
 
-public class Oreblob implements Moveable{
+public class Oreblob extends Actioned{
 
 
 
 
     public static final String QUAKE_KEY = "quake";
-    public static final String QUAKE_ID = "quake";
+
 
 
 
     public Oreblob(String id, Point position,
                List<PImage> images, int resourceLimit, int resourceCount,
                int actionPeriod, int animationPeriod) {
-        this.id = id;
-        this.position = position;
-        this.images = images;
-        this.imageIndex = 0;
-        this.resourceLimit = resourceLimit;
-        this.resourceCount = resourceCount;
-        this.actionPeriod = actionPeriod;
-        this.animationPeriod = animationPeriod;
-    }
+
+        super(id,position,images,resourceLimit, resourceCount,actionPeriod,animationPeriod);
+
+   }
 
     public static Oreblob createOreBlob(String id, Point position,
                                        int actionPeriod, int animationPeriod, List<PImage> images)
@@ -33,28 +28,6 @@ public class Oreblob implements Moveable{
                 0, 0, actionPeriod, animationPeriod);
     }
 
-
-
-    public Point getPosition() { return this.position;}
-    public List<PImage> getImages() { return this.images;}
-    public int getImageIndex() { return this.imageIndex;}
-    //public int getResourceLimit() { return this.resourceLimit;}
-    //public int getResourceCount() { return this.resourceCount;}
-    // public int getActionPeriod() { return this.actionPeriod;}
-    //public int getAnimationPeriod() { return this.animationPeriod;}
-
-
-
-    //setters
-    //public void setEntityKind(EntityKind k) {  this.kind =k;}
-    //public void setID(String i ) {  this.id = i;}
-    public void setPosition(Point p) { this.position = p;}
-    public void setImages(List<PImage> i) { this.images =i; }
-    //public void setImageIndex(int i) { this.imageIndex = i;}
-    //public void setResourceLimit(int r) { this.resourceLimit = r;}
-    //public void setResourceCount(int r) { this.resourceCount=r;}
-    //public void setActionPeriod(int a) { this.actionPeriod = a;}
-    //public void setAnimationPeriod(int a) {this.animationPeriod = a;}
 
 
 
@@ -144,21 +117,8 @@ public class Oreblob implements Moveable{
     }
 
 
-    public int getAnimationPeriod() { return this.animationPeriod; }
-
-    //edited
-    public void nextImage() {
-        this.imageIndex = (this.getImageIndex() + 1) % this.getImages().size();}
 
 
 
-        public void scheduleActions (EventScheduler scheduler, WorldModel world, ImageStore imageStore)
-        {
-            scheduler.scheduleEvent(this,
-                    Activity.createActivityAction(this, world, imageStore),
-                    this.actionPeriod);
-            scheduler.scheduleEvent(this,
-                    Animation.createAnimationAction(this, 0), this.getAnimationPeriod());
-        }
 
     }

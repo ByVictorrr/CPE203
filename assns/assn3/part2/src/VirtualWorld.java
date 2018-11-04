@@ -156,8 +156,8 @@ public final class VirtualWorld
       EventScheduler scheduler, ImageStore imageStore)
    {
       for (Entity entity : world.getEntities()) {
-          if (entity instanceof Executable) {
-              ((Executable) entity).scheduleActions(scheduler, world, imageStore);
+          if (entity instanceof Actioned) {
+              ((Actioned) entity).scheduleActions(scheduler, world, imageStore);
           }
       }
    }
