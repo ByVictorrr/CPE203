@@ -18,7 +18,7 @@ public class Obstacle implements Entity{
     public Obstacle(String id, Point position,
                         List<PImage> images, int resourceLimit, int resourceCount,
                         int actionPeriod, int animationPeriod) {
-        this.id = id;
+        super.id = id;
         this.position = position;
         this.images = images;
         this.imageIndex = 0;
@@ -36,29 +36,6 @@ public class Obstacle implements Entity{
         return new Obstacle( id, position, images,
                 0, 0, 0, 0);
     }
-
-
-    public Point getPosition() { return this.position;}
-    public List<PImage> getImages() { return this.images;}
-    public int getImageIndex() { return this.imageIndex;}
-    //public int getResourceLimit() { return this.resourceLimit;}
-    //public int getResourceCount() { return this.resourceCount;}
-    // public int getActionPeriod() { return this.actionPeriod;}
-    //public int getAnimationPeriod() { return this.animationPeriod;}
-
-
-
-    //setters
-    //public void setEntityKind(EntityKind k) {  this.kind =k;}
-    //public void setID(String i ) {  this.id = i;}
-    public void setPosition(Point p) { this.position = p;}
-    public void setImages(List<PImage> i) { this.images =i; }
-    //public void setImageIndex(int i) { this.imageIndex = i;}
-    //public void setResourceLimit(int r) { this.resourceLimit = r;}
-    //public void setResourceCount(int r) { this.resourceCount=r;}
-    //public void setActionPeriod(int a) { this.actionPeriod = a;}
-    //public void setAnimationPeriod(int a) {this.animationPeriod = a;}
-
 
 
 

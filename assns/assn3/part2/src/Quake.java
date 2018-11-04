@@ -41,26 +41,6 @@ public class Quake implements Animationable{
                 0, 0, QUAKE_ACTION_PERIOD, QUAKE_ANIMATION_PERIOD);
     }
 
-    public Point getPosition() { return this.position;}
-    public List<PImage> getImages() { return this.images;}
-    public int getImageIndex() { return this.imageIndex;}
-    //public int getResourceLimit() { return this.resourceLimit;}
-    //public int getResourceCount() { return this.resourceCount;}
-    // public int getActionPeriod() { return this.actionPeriod;}
-    //public int getAnimationPeriod() { return this.animationPeriod;}
-
-
-
-    //setters
-    //public void setEntityKind(EntityKind k) {  this.kind =k;}
-    //public void setID(String i ) {  this.id = i;}
-    public void setPosition(Point p) { this.position = p;}
-    public void setImages(List<PImage> i) { this.images =i; }
-    //public void setImageIndex(int i) { this.imageIndex = i;}
-    //public void setResourceLimit(int r) { this.resourceLimit = r;}
-    //public void setResourceCount(int r) { this.resourceCount=r;}
-    //public void setActionPeriod(int a) { this.actionPeriod = a;}
-    //public void setAnimationPeriod(int a) {this.animationPeriod = a;}
 
 
 

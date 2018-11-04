@@ -270,7 +270,7 @@
 +setPosition()
 +getCurrentImage(): Pimage
 +nextImage()
-+scheduleActions()
++getImageIndex(): int
 </y:MethodLabel>
           </y:UML>
         </y:UMLClassNode>
@@ -808,22 +808,8 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e9" source="n18" target="n10">
+    <edge id="e9" source="n25" target="n23">
       <data key="d8" xml:space="preserve"/>
-      <data key="d10">
-        <y:PolyLineEdge>
-          <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
-            <y:Point x="1852.4283797151268" y="-655.8313037762332"/>
-          </y:Path>
-          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
-          <y:Arrows source="none" target="white_delta"/>
-          <y:BendStyle smoothed="false"/>
-        </y:PolyLineEdge>
-      </data>
-    </edge>
-    <edge id="e10" source="n25" target="n23">
-      <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="38.45628732214203" sy="-40.5448042080655" tx="-128.3920505124671" ty="46.47489107844683"/>
@@ -833,9 +819,8 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e11" source="n24" target="n25">
+    <edge id="e10" source="n24" target="n25">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0">
@@ -847,13 +832,26 @@
         </y:PolyLineEdge>
       </data>
     </edge>
-    <edge id="e12" source="n17" target="n25">
+    <edge id="e11" source="n17" target="n25">
       <data key="d8" xml:space="preserve"/>
-      <data key="d9"/>
       <data key="d10">
         <y:PolyLineEdge>
           <y:Path sx="0.0" sy="0.0" tx="0.0" ty="0.0"/>
           <y:LineStyle color="#000000" type="line" width="1.0"/>
+          <y:Arrows source="none" target="white_delta"/>
+          <y:BendStyle smoothed="false"/>
+        </y:PolyLineEdge>
+      </data>
+    </edge>
+    <edge id="e12" source="n18" target="n23">
+      <data key="d8" xml:space="preserve"/>
+      <data key="d9"/>
+      <data key="d10">
+        <y:PolyLineEdge>
+          <y:Path sx="0.0" sy="0.0" tx="91.08960465521955" ty="0.0">
+            <y:Point x="717.0760210356001" y="-411.165616010975"/>
+          </y:Path>
+          <y:LineStyle color="#000000" type="dashed" width="1.0"/>
           <y:Arrows source="none" target="white_delta"/>
           <y:BendStyle smoothed="false"/>
         </y:PolyLineEdge>

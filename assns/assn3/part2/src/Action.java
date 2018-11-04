@@ -1,6 +1,6 @@
 
-public interface Action
+abstract public class Action
 {
 
-    void executeAction(EventScheduler scheduler);
+    abstract public void executeAction(EventScheduler scheduler);
 }

@@ -5,7 +5,7 @@
 
 
 
-public class Activity implements Action{
+public class Activity extends Action{
 
 
     private Entity entity;

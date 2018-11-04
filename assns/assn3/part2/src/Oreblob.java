@@ -12,15 +12,6 @@ public class Oreblob implements Moveable{
     public static final String QUAKE_ID = "quake";
 
 
-    private Point position;
-    private List<PImage> images;
-    private int imageIndex;
-    private int resourceLimit;
-    private int resourceCount;
-    private int actionPeriod;
-    private int animationPeriod;
-    private String id;
-
 
     public Oreblob(String id, Point position,
                List<PImage> images, int resourceLimit, int resourceCount,
