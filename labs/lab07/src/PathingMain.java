@@ -30,7 +30,7 @@ public class PathingMain extends PApplet
 	public void settings() {
       size(640,480);
 	}
-	
+
 	/* runs once to set up world */
    public void setup()
    {
@@ -56,7 +56,7 @@ public class PathingMain extends PApplet
    }
 
 
-   
+
 
 	/* set up a 2D grid to represent the world */
    private static void initialize_grid(GridValues[][] grid)
@@ -167,8 +167,8 @@ public class PathingMain extends PApplet
       if (key == ' ')
       {
 			//clear out prior path
-         path.clear();
-			//example - replace with dfs	
+        // path.clear();
+			//example - replace with dfs
          moveOnce(wPos, grid, path);
       }
       else if (key == 'p')
@@ -178,36 +178,59 @@ public class PathingMain extends PApplet
       }
    }
 
-	/* replace the below with a depth first search 
+	/* replace the below with a depth first search
 		this code provided only as an example of moving in
 		in one direction for one tile - it mostly is for illustrating
 		how you might test the occupancy grid and add nodes to path!
 	*/
-   private boolean moveOnce(Point pos, GridValues[][] grid, List<Point> path)
-   {
+	//using a stack to hold previous paths
+   private boolean moveOnce(Point pos, GridValues[][] grid, List<Point> path) {
       try {
-         Thread.sleep(200);
-      } catch (Exception e) {}
+         Thread.sleep(0);
+      } catch (Exception e) {
+      }
+
       redraw();
 
-      Point rightN = new Point(pos.x +1, pos.y );
-     
-		//test if this is a valid grid cell 
-		if (withinBounds(rightN, grid)  &&
-         grid[rightN.y][rightN.x] != GridValues.OBSTACLE && 
-         grid[rightN.y][rightN.x] != GridValues.SEARCHED)
-      {
-			//check if my right neighbor is the goal
-      	if (grid[rightN.y][rightN.x] == GridValues.GOAL) {
-         	path.add(0, rightN);
-         	return true;
-      	}
-			//set this value as searched
-      	grid[rightN.y][rightN.x] = GridValues.SEARCHED;
+      boolean valid = false;
+
+
+      //test if this is a valid grid cell
+      if (withinBounds(pos, grid) && grid[pos.y][pos.x] != GridValues.OBSTACLE && grid[pos.y][pos.x] != GridValues.SEARCHED) {
+
+         //check if p_i is goal
+         if (grid[pos.y][pos.x] == GridValues.GOAL) {
+         //get valid = true
+            valid = true;
+
+         }
+         //if p_i isnt the p_goal
+         else {
+
+            //set this value as searched
+            grid[pos.y][pos.x] = GridValues.SEARCHED;
+
+            Point rightN = new Point(pos.x + 1, pos.y);
+
+            Point downN = new Point(pos.x, pos.y + 1);
+
+            Point leftN = new Point(pos.x - 1, pos.y);
+
+            Point upN = new Point(pos.x, pos.y - 1);
+
+            // if all the points around that one point is
+            valid = moveOnce(upN, grid, path) ||  moveOnce(leftN, grid, path) ||  moveOnce(downN, grid, path) || moveOnce(rightN, grid, path);
+         }
+
+      } //end of condition of pos not osbtactle or not searched
+
+      if (valid == true) {
+
+         this.path.add(pos);
       }
-        
-		return false;
+      return valid;
    }
+
 
    private static boolean withinBounds(Point p, GridValues[][] grid)
    {
