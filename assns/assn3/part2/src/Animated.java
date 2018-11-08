@@ -9,16 +9,10 @@ abstract public class Animated extends Actioned {
 
 
     public Animated(String id, Point position,
-                      List<PImage> images, int resourceLimit, int resourceCount,
+                      List<PImage> images,
                       int actionPeriod, int animationPeriod)
     {
-        super(id,position,images,resourceLimit, resourceCount,actionPeriod,animationPeriod);
-    }
-
-
-    public int getAnimationPeriod()
-    {
-        return this.animationPeriod;
+        super(id,position,images,actionPeriod,animationPeriod);
     }
 
 
@@ -26,32 +20,8 @@ abstract public class Animated extends Actioned {
 
         scheduler.scheduleEvent(this,
                 Activity.createActivityAction(this, world, imageStore),
-                this.actionPeriod);
+                this.getActionPeriod());
     }
 
-    public Point nextPosition( WorldModel world, Point destPos)
-    {
-        int horiz = Integer.signum(destPos.x - this.position.x);
-        Point newPos = new Point(this.position.x + horiz,
-                this.position.y);
-
-        Optional<Entity> occupant = world.getOccupant( newPos);
-
-        if (horiz == 0 ||
-                (occupant.isPresent() && !(occupant.get().getClass() == Ore.class )))
-        {
-            int vert = Integer.signum(destPos.y - this.position.y);
-            newPos = new Point(this.position.x, this.position.y + vert);
-            occupant = world.getOccupant( newPos);
-
-            if ((vert == 0) ||
-                    (occupant.isPresent() && !(occupant.get().getClass() == Ore.class)))
-            {
-                newPos = this.position;
-            }
-        }
-
-        return newPos;
-    }
 
 }

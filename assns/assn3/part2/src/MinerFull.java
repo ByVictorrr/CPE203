@@ -13,7 +13,7 @@ public class MinerFull extends Miner{
                        List<PImage> images, int resourceLimit, int resourceCount,
                        int actionPeriod, int animationPeriod)
     {
-        super(id,position,images,resourceLimit, resourceCount,actionPeriod,animationPeriod);
+        super(id , position,images,resourceLimit, resourceCount,actionPeriod,animationPeriod);
     }
 
 
@@ -21,8 +21,7 @@ public class MinerFull extends Miner{
                                          Point position, int actionPeriod, int animationPeriod,
                                          List<PImage> images)
     {
-        return new MinerFull( id, position, images,
-                resourceLimit, resourceLimit, actionPeriod, animationPeriod);
+        return new MinerFull( id, position, images, resourceLimit,0, actionPeriod, animationPeriod);
     }
 
 
@@ -30,7 +29,7 @@ public class MinerFull extends Miner{
 
     public void execute( WorldModel world, ImageStore imageStore, EventScheduler scheduler)
     {
-        Optional<Entity> fullTarget = world.findNearest(this.position, Blacksmith.class);
+        Optional<Entity> fullTarget = world.findNearest(this.getPosition(), Blacksmith.class);
 
         if (fullTarget.isPresent() &&
                 moveToFull( world, fullTarget.get(), scheduler))
@@ -41,16 +40,16 @@ public class MinerFull extends Miner{
         {
             scheduler.scheduleEvent(this,
                     Activity.createActivityAction(this, world, imageStore),
-                    this.actionPeriod);
+                    this.getActionPeriod());
         }
     }
 
     public void transformFull( WorldModel world,
                                EventScheduler scheduler, ImageStore imageStore)
     {
-        MinerNotFull miner = MinerNotFull.createMinerNotFull(this.id, this.resourceLimit,
-                this.position, this.actionPeriod, this.animationPeriod,
-                this.images);
+        MinerNotFull miner = MinerNotFull.createMinerNotFull(this.getId(), this.getResourceLimit(),
+                this.getPosition(), this.getActionPeriod(), this.getAnimationPeriod(),
+                this.getImages());
 
         world.removeEntity( this);
         scheduler.unscheduleAllEvents( this);
@@ -63,7 +62,7 @@ public class MinerFull extends Miner{
 
     public  boolean moveToFull(WorldModel world, Entity target, EventScheduler scheduler)
     {
-        if (Point.adjacent(this.position, target.getPosition()))
+        if (Point.adjacent(this.getPosition(), target.getPosition()))
         {
             return true;
         }
@@ -71,7 +70,7 @@ public class MinerFull extends Miner{
         {
             Point nextPos = this.nextPosition( world, target.getPosition());
 
-            if (!this.position.equals(nextPos))
+            if (!this.getPosition().equals(nextPos))
             {
                 Optional<Entity> occupant = world.getOccupant( nextPos);
                 if (occupant.isPresent())

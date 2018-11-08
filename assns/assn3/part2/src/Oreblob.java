@@ -14,18 +14,17 @@ public class Oreblob extends Moved{
 
 
     public Oreblob(String id, Point position,
-               List<PImage> images, int resourceLimit, int resourceCount,
+               List<PImage> images,
                int actionPeriod, int animationPeriod) {
 
-        super(id,position,images,resourceLimit, resourceCount,actionPeriod,animationPeriod);
+        super(id,position,images,actionPeriod,animationPeriod);
 
    }
 
     public static Oreblob createOreBlob(String id, Point position,
                                        int actionPeriod, int animationPeriod, List<PImage> images)
     {
-        return new Oreblob( id, position, images,
-                0, 0, actionPeriod, animationPeriod);
+        return new Oreblob( id, position, images, actionPeriod, animationPeriod);
     }
 
 
@@ -44,7 +43,7 @@ public class Oreblob extends Moved{
         {
             Point nextPos = this.nextPosition( world, target.getPosition());
 
-            if (!this.position.equals(nextPos))
+            if (!this.getPosition().equals(nextPos))
             {
                 Optional<Entity> occupant = world.getOccupant( nextPos);
                 if (occupant.isPresent())
@@ -68,8 +67,8 @@ public class Oreblob extends Moved{
 
     public  void execute( WorldModel world, ImageStore imageStore, EventScheduler scheduler)
     {
-        Optional<Entity> blobTarget = world.findNearest( this.position, Vein.class);
-        long nextPeriod = this.actionPeriod;
+        Optional<Entity> blobTarget = world.findNearest( this.getPosition(), Vein.class);
+        long nextPeriod = this.getActionPeriod();
 
         if (blobTarget.isPresent())
         {
@@ -82,7 +81,7 @@ public class Oreblob extends Moved{
                         ImageStore.getImageList(imageStore, QUAKE_KEY));
 
                 world.addEntity( quake);
-                nextPeriod += this.actionPeriod;
+                nextPeriod += this.getActionPeriod();
                 ((Quake)quake).scheduleActions( scheduler, world, imageStore);
             }
         }

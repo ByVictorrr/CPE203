@@ -8,12 +8,11 @@ abstract public class Actioned extends Entity{
 
 
 
-
     public Actioned(String id, Point position,
-                    List<PImage> images, int resourceLimit, int resourceCount,
+                    List<PImage> images,
                     int actionPeriod, int animationPeriod)
     {
-        super(id,position,images,resourceLimit, resourceCount,actionPeriod,animationPeriod);
+        super(id,position,images,actionPeriod,animationPeriod);
     }
 
 
@@ -23,7 +22,7 @@ abstract public class Actioned extends Entity{
     {
         scheduler.scheduleEvent(this,
                 Activity.createActivityAction(this, world, imageStore),
-                this.actionPeriod);
+                this.getActionPeriod());
         scheduler.scheduleEvent(this,
                 Animation.createAnimationAction(this, 0), this.getAnimationPeriod());
     }

@@ -18,7 +18,7 @@ public class Vein extends Animated{
                  List<PImage> images, int resourceLimit, int resourceCount,
                  int actionPeriod, int animationPeriod) {
 
-        super(id,position,images,resourceLimit, resourceCount,actionPeriod,animationPeriod);
+        super(id,position,images,actionPeriod,animationPeriod);
     }
 
     public static Vein createVein(String id, Point position, int actionPeriod,
@@ -29,11 +29,11 @@ public class Vein extends Animated{
 
     public void execute( WorldModel world, ImageStore imageStore, EventScheduler scheduler)
     {
-        Optional<Point> openPt = world.findOpenAround(this.position);
+        Optional<Point> openPt = world.findOpenAround(this.getPosition());
 
         if (openPt.isPresent())
         {
-            Entity ore = Ore.createOre(ORE_ID_PREFIX + super.id,
+            Entity ore = Ore.createOre(ORE_ID_PREFIX + super.getId(),
                     openPt.get(), ORE_CORRUPT_MIN +
                             Functions.rand.nextInt(ORE_CORRUPT_MAX - ORE_CORRUPT_MIN),
                     ImageStore.getImageList(imageStore, ORE_KEY));
@@ -44,7 +44,7 @@ public class Vein extends Animated{
 
         scheduler.scheduleEvent( this,
                 Activity.createActivityAction(this, world, imageStore),
-                this.actionPeriod);
+                this.getActionPeriod());
     }
 
 

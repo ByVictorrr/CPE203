@@ -25,11 +25,11 @@ public class MinerNotFull extends Miner{
 
     public boolean transformNotFull(WorldModel world,
                                     EventScheduler scheduler, ImageStore imageStore) {
-        if (this.resourceCount >= this.resourceLimit) {
+        if (this.getResourceCount() >= this.getResourceLimit()) {
 
-            Entity miner = MinerFull.createMinerFull(this.id, this.resourceLimit,
-                    this.position, this.actionPeriod, this.animationPeriod,
-                    this.images);
+            Entity miner = MinerFull.createMinerFull(this.getId(), this.getResourceLimit(),
+                    this.getPosition(), this.getActionPeriod(), this.getAnimationPeriod(),
+                    this.getImages());
 
             world.removeEntity((Entity) this);
             scheduler.unscheduleAllEvents((Entity) this);
@@ -46,7 +46,7 @@ public class MinerNotFull extends Miner{
 
     public boolean moveToNotFull(WorldModel world, Entity target, EventScheduler scheduler) {
 
-        if (Point.adjacent(this.position, target.getPosition())) {
+        if (Point.adjacent(this.getPosition(), target.getPosition())) {
             this.resourceCount += 1;
             world.removeEntity(target);
             scheduler.unscheduleAllEvents(target);
@@ -70,14 +70,14 @@ public class MinerNotFull extends Miner{
 
     public void execute(WorldModel world, ImageStore imageStore, EventScheduler scheduler) {
 
-        Optional<Entity> notFullTarget = world.findNearest(this.position, Ore.class);
+        Optional<Entity> notFullTarget = world.findNearest(this.getPosition(), Ore.class);
 
         if (!notFullTarget.isPresent() ||
                 !moveToNotFull(world, notFullTarget.get(), scheduler) ||
                 !transformNotFull(world, scheduler, imageStore)) {
             scheduler.scheduleEvent((Entity) this,
                     Activity.createActivityAction((Entity) this, world, imageStore),
-                    this.actionPeriod);
+                    this.getActionPeriod());
         }
     }
 

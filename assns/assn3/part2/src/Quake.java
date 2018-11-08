@@ -15,16 +15,15 @@ public class Quake extends Actioned{
 
 
     public Quake(String id, Point position,
-                   List<PImage> images, int resourceLimit, int resourceCount,
+                   List<PImage> images,
                    int actionPeriod, int animationPeriod) {
 
-        super(id,position,images,resourceLimit, resourceCount,actionPeriod,animationPeriod);
+        super(id,position,images,actionPeriod,animationPeriod);
     }
 
     public static Quake createQuake(Point position, List<PImage> images)
     {
-     return new Quake(QUAKE_ID, position, images,
-                0, 0, QUAKE_ACTION_PERIOD, QUAKE_ANIMATION_PERIOD);
+     return new Quake(QUAKE_ID, position, images, QUAKE_ACTION_PERIOD, QUAKE_ANIMATION_PERIOD);
     }
 
 
@@ -43,7 +42,7 @@ public class Quake extends Actioned{
 
     public void scheduleActions( EventScheduler scheduler, WorldModel world, ImageStore imageStore) {
 
-        scheduler.scheduleEvent(this, Activity.createActivityAction(this, world, imageStore), this.actionPeriod);
+        scheduler.scheduleEvent(this, Activity.createActivityAction(this, world, imageStore), this.getActionPeriod());
         scheduler.scheduleEvent(this, Animation.createAnimationAction(this, QUAKE_ANIMATION_REPEAT_COUNT), this.getAnimationPeriod());
     }
 

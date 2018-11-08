@@ -7,11 +7,9 @@ public class Blacksmith extends Entity{
 
 
 
-    public Blacksmith( String id, Point position,
-                  List<PImage> images, int resourceLimit, int resourceCount,
-                  int actionPeriod, int animationPeriod)
+    public Blacksmith( String id, Point position, List<PImage> images, int actionPeriod, int animationPeriod)
     {
-        super(id,position,images,resourceLimit, resourceCount,actionPeriod,animationPeriod);
+        super(id,position,images,actionPeriod,animationPeriod);
     }
 
 
@@ -19,8 +17,7 @@ public class Blacksmith extends Entity{
     public static Blacksmith createBlacksmith(String id, Point position,
                                           List<PImage> images)
     {
-        return new Blacksmith( id, position, images,
-                0, 0, 0, 0);
+        return new Blacksmith( id, position, images, 0, 0);
     }
 
 
