@@ -1,4 +1,6 @@
 import java.io.File;
+
+
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -400,7 +402,7 @@ public class LogAnalyzer {
       throws FileNotFoundException
    {
       try (Scanner input = new Scanner(new File(filename)))
-      {
+    i  {
 
          processFile(input, sessionsFromCustomer, viewsFromSession, buyFromSession);
       }
