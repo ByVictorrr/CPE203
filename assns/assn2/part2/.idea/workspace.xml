@@ -2,15 +2,28 @@
 <project version="4">
   <component name="BookmarkManager">
     <bookmark url="file://$PROJECT_DIR$/src/Blacksmith.java" line="34" />
+    <bookmark url="file://$PROJECT_DIR$/src/Functions.java" line="106" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="676fbb6f-5e13-4976-9fc8-2730ced9ce16" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../part1/Interfaces.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/../part1/Interfaces.graphml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/part2/Functions.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/part2/Functions.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/part2/MinerNotFull.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/part2/MinerNotFull.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/part2/Ore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/part2/Ore.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/part2/Vein.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/part2/Vein.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../labs/lab07/src/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../labs/lab07/src/.idea/src.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../labs/lab07/src/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../../labs/lab07/src/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Functions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Functions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assn3/part2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../assn3/part2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assn3/part2/src/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../assn3/part2/src/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../assn3/part2/src/Inheritance.graphml" beforeDir="false" afterPath="$PROJECT_DIR$/../../assn3/part2/src/Inheritance.graphml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../labs/lab07/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../labs/lab07/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../labs/lab07/lab7/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../labs/lab07/lab7/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../labs/lab07/lab7/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../../labs/lab07/lab7/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../labs/lab07/out/production/lab07/PathingMain$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../labs/lab07/out/production/lab07/PathingMain$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../labs/lab07/out/production/lab07/PathingMain$GridValues.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../labs/lab07/out/production/lab07/PathingMain$GridValues.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../labs/lab07/out/production/lab07/PathingMain.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../labs/lab07/out/production/lab07/PathingMain.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../labs/lab07/out/production/lab07/Point.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../../labs/lab07/out/production/lab07/Point.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../labs/lab07/src/PathingMain.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../labs/lab07/src/PathingMain.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../labs/lab07/src/Point.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../../labs/lab07/src/Point.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -23,35 +36,36 @@
     <session id="-537651951">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="3" />
           <entry key="imagelist" value="1" />
-          <entry key="java" value="228" />
+          <entry key="java" value="230" />
           <entry key="txt" value="2" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="3" />
-          <entry key="JAVA" value="228" />
+          <entry key="JAVA" value="230" />
           <entry key="PLAIN_TEXT" value="3" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3674" />
+          <entry key="java" value="3682" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3674" />
+          <entry key="JAVA" value="3682" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.vcs.git.usages" />
@@ -59,20 +73,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Executable.java">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Blacksmith.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="780">
+              <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Event.java">
+        <entry file="file://$PROJECT_DIR$/src/Functions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="239">
+              <caret line="118" column="5" lean-forward="true" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
             </state>
           </provider>
         </entry>
@@ -98,7 +115,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Quake.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="795">
+            <state relative-caret-position="825">
               <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -116,11 +133,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MinerNotFull.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+            <state relative-caret-position="597">
+              <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,7 +148,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MinerFull.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2475">
+            <state relative-caret-position="2535">
               <caret line="175" column="54" selection-start-line="175" selection-start-column="54" selection-end-line="175" selection-end-column="54" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -178,7 +195,6 @@
         <option value="$PROJECT_DIR$/src/MinerFull.java" />
         <option value="$PROJECT_DIR$/src/Animation.java" />
         <option value="$PROJECT_DIR$/src/Obstacle.java" />
-        <option value="$PROJECT_DIR$/src/Functions.java" />
         <option value="$PROJECT_DIR$/src/Animationable.java" />
         <option value="$PROJECT_DIR$/src/Activity.java" />
         <option value="$PROJECT_DIR$/src/Oreblob.java" />
@@ -193,14 +209,15 @@
         <option value="$PROJECT_DIR$/src/WorldModel.java" />
         <option value="$PROJECT_DIR$/src/MinerNotFull.java" />
         <option value="$PROJECT_DIR$/src/Executable.java" />
+        <option value="$PROJECT_DIR$/src/Functions.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="562" />
-    <option name="y" value="-14" />
-    <option name="width" value="556" />
-    <option name="height" value="1058" />
+    <option name="x" value="-2" />
+    <option name="y" value="-22" />
+    <option name="width" value="1684" />
+    <option name="height" value="1074" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -208,6 +225,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -224,14 +243,12 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="ORE_RE&#9;PSI&#9;JAVA://Vein#ORE_REACH&#10;ORE_Re&#9;PSI&#9;JAVA://Vein#ORE_REACH&#10;getImag&#9;PSI&#9;JAVA://Obstacle#getImageIndex&#10;getImages&#9;PSI&#9;JAVA://Entity#getImages&#10;AD&#9;PSI&#9;JAVA://Point#adjacent&#10;removeEntity&#9;PSI&#9;JAVA://WorldModel#removeEntityAt&#10;.remov&#9;PSI&#9;JAVA://WorldModel#removeEntity&#10;setoccu&#9;PSI&#9;JAVA://WorldModel#setOccupancyCell&#10;move()&#9;PSI&#9;JAVA://Moveable#move&#10;getImage&#9;PSI&#9;JAVA://Blacksmith#getImageIndex&#10;getCurr&#9;PSI&#9;JAVA://Background#getCurrentImage&#10;getIMageL&#9;PSI&#9;JAVA://ImageStore#getImageList&#10;execute&#9;PSI&#9;JAVA://Animation#executeActivityAction&#10;rand &#9;PSI&#9;JAVA://Functions#rand&#10;findOpe&#9;PSI&#9;JAVA://Entity#findOpenAround&#10;getCurre&#9;PSI&#9;JAVA://Background#getCurrentImage&#10;getIMageLi&#9;PSI&#9;JAVA://Functions#getImageList&#10;action&#9;PSI&#9;JAVA://Event#action&#10;kind&#9;FILE&#9;file:///home/victor/CPE203/assns/assn2/part2/src/EntityKind.java" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1540616007189" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../assn3/part2/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../assn4/part2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -271,9 +288,37 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="562" y="-14" width="556" height="1058" extended-state="0" />
+    <frame x="-2" y="-22" width="1684" height="1074" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25882354" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2620222" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="Designer" order="3" />
+      <window_info id="UI Designer" order="4" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49803922" weight="0.33545646" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5019608" side_tool="true" weight="0.33545646" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.496337" weight="0.32985386" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Palette" order="3" />
+      <window_info anchor="right" id="Capture Analysis" order="4" />
+      <window_info anchor="right" id="Theme Preview" order="5" />
+      <window_info anchor="right" id="Palette&#9;" order="6" />
+      <window_info anchor="right" id="Maven Projects" order="7" />
+    </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2620222" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -299,7 +344,7 @@
       <window_info anchor="right" id="Theme Preview" order="5" />
       <window_info anchor="right" id="Palette&#9;" order="6" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-    </layout>
+    </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -353,13 +398,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Functions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -436,16 +474,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Blacksmith.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="86">
-          <caret line="32" selection-start-line="32" selection-end-line="32" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EventScheduler.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-195">
@@ -497,7 +525,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Quake.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="795">
+        <state relative-caret-position="825">
           <caret line="55" column="50" selection-start-line="55" selection-start-column="50" selection-end-line="55" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -512,19 +540,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MinerNotFull.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="17" column="18" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MinerFull.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2475">
+        <state relative-caret-position="2535">
           <caret line="175" column="54" selection-start-line="175" selection-start-column="54" selection-end-line="175" selection-end-column="54" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -543,6 +561,33 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Blacksmith.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="780">
+          <caret line="52" column="12" selection-start-line="52" selection-start-column="12" selection-end-line="52" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Functions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="118" column="5" lean-forward="true" selection-start-line="118" selection-start-column="5" selection-end-line="118" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MinerNotFull.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="597">
+          <caret line="97" column="20" selection-start-line="97" selection-start-column="20" selection-end-line="97" selection-end-column="20" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

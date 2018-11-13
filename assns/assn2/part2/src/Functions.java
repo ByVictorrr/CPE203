@@ -62,12 +62,11 @@ final class Functions {
 
 
 
-
-
-
    public static List<PImage> getImageList(ImageStore imageStore, String key) {
       return imageStore.images.getOrDefault(key, imageStore.defaultImages);
    }
+
+
 
    public static void loadImages(Scanner in, ImageStore imageStore,
                                  PApplet screen) {
@@ -82,6 +81,7 @@ final class Functions {
          lineNumber++;
       }
    }
+
 
    public static void processImageLine(Map<String, List<PImage>> images,
                                        String line, PApplet screen) {
@@ -102,6 +102,7 @@ final class Functions {
          }
       }
    }
+
 
    public static List<PImage> getImages(Map<String, List<PImage>> images, String key) {
       List<PImage> imgs = images.get(key);

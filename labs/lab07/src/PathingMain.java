@@ -3,6 +3,8 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import processing.core.*;
 
+import javax.swing.plaf.synth.SynthTextAreaUI;
+
 public class PathingMain extends PApplet
 {
    private List<PImage> imgs;
@@ -218,14 +220,17 @@ public class PathingMain extends PApplet
 
             Point upN = new Point(pos.x, pos.y - 1);
 
+            //if up has to catches at ith position conintue up else go left from that ith position  then down
+
             // if all the points around that one point is
-            valid = moveOnce(upN, grid, path) ||  moveOnce(leftN, grid, path) ||  moveOnce(downN, grid, path) || moveOnce(rightN, grid, path);
+            valid = moveOnce(upN, grid, path) ||  moveOnce(rightN, grid, path) ||  moveOnce(downN, grid, path) || moveOnce(leftN, grid, path);
          }
 
       } //end of condition of pos not osbtactle or not searched
 
       if (valid == true) {
-
+         
+         //System.out.print(pos);
          this.path.add(pos);
       }
       return valid;
