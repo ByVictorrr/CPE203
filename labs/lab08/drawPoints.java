@@ -18,7 +18,7 @@ public class drawPoints extends PApplet {
 		populateList(points);
 
 		points.stream()
-			.filter() //filter z > 2.0
+			.filter(p->p.getZ() > 2.0) //filter z > 2.0
 			.mapToDouble() //scale all points by 1/2
 			.mapToDouble() //translates all points by {-150,-37}
 			.collect(collection.toList());
