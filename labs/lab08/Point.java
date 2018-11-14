@@ -25,6 +25,16 @@ public Point scalePoint(double scaleFactor){
 
 	return scaledP;
 }
+//translates point by a given point
+public Point translated(Point translater)
+{
+	this.x = this.x + translater.getX();
+	this.y = this.y + translater.getY();
+	return this;
+}
+
+
+
    @Override
    public String toString() {
       return "(" + x + "," + y +"," + z + ")";
