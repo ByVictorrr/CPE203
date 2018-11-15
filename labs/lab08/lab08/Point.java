@@ -4,8 +4,9 @@ public class Point
    private  double y;
    private  double z;
 
+
    public Point(String x, String y, String z) {
-      this.x = Double.parseDouble(x);
+      this.x =  Double.parseDouble(x);
       this.y =  Double.parseDouble(y);
 	  this.z =  Double.parseDouble(z);  
 }
@@ -34,7 +35,7 @@ public Point scalePoint(double scaleFactor){
 	return new Point(scaleFactor*this.getX(), scaleFactor*this.getY(), scaleFactor*this.getZ());
 }
 //translates point by a given point
-public Point translated(Point translater)
+public Point translate(Point translater)
 {
 	this.x = this.x + translater.getX();
 	this.y = this.y + translater.getY();

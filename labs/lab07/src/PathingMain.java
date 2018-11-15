@@ -38,6 +38,7 @@ public class PathingMain extends PApplet
    {
 
       path = new LinkedList<>();
+
       wPos = new Point(2, 2);
       imgs = new ArrayList<>();
       imgs.add(loadImage("images/wyvern1.bmp"));
@@ -223,14 +224,14 @@ public class PathingMain extends PApplet
             //if up has to catches at ith position conintue up else go left from that ith position  then down
 
             // if all the points around that one point is
-            valid = moveOnce(upN, grid, path) ||  moveOnce(rightN, grid, path) ||  moveOnce(downN, grid, path) || moveOnce(leftN, grid, path);
+            valid = moveOnce(rightN, grid, path) ||  moveOnce(leftN, grid, path) ||  moveOnce(downN, grid, path) || moveOnce(upN, grid, path);
          }
 
       } //end of condition of pos not osbtactle or not searched
 
       if (valid == true) {
          
-         //System.out.print(pos);
+         System.out.print(pos);
          this.path.add(pos);
       }
       return valid;

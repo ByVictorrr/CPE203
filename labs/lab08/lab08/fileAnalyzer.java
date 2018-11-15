@@ -1,24 +1,16 @@
-import java.awt.Point;
 import java.io.File;
 import java.io.*;
-import java.util.Collection.stream.Collector;
-import java.util.logging.Formatter;
-import java.util.Collection.stream.Collection;
-
-import java.util.Collection.stream;
+import java.nio.DoubleBuffer;
+import java.util.*;
 import java.io.FileNotFoundException;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.stream.Collectors;
 
 
 public class fileAnalyzer {
 
-		Formatter writerFile;
+		FileWriter writerFile;
 
-        private List <Point> points;
+        private static List <Point> points;
 
         public List<Point> getPoints(){return points;}
 
@@ -70,43 +62,52 @@ public class fileAnalyzer {
 
    public void openWriterFile()
    {
-	
 	try{
-       writerFile = new Formatter("drawMe.txt");
+       writerFile = new FileWriter(( new File("drawMe.txt")));
 	}
 	catch(Exception e){
 
 	System.out.println("something went wrong");
 	
 	}
-
-   } 
+   }
 
 public void writeToFile()
 {
-		points = points.stream()
-			.filter(p->p.getZ() > 2.0)
-			.map(p->p.scalePoint())
-			.map(p -> p.translate(new Point(150.0, -37,0)))
-			.collect(Collector.toList());
 
-	for (int i = 0; i< points.size(); i++)
-	{
-	//just going to write to a file
-	writerFile.format("%s,%s,%s%n", points.get(i).getX(),   points.get(i).getY(),  points.get(i).getZ());
-	}
+    try {
+        writerFile = new FileWriter((new File("drawMe.txt")));
 
-	return filteredData;
+        points = points.stream()
+                .filter(p -> p.getZ() > 2.0)
+                .map(p -> p.scalePoint(0.5))
+                .map(p -> p.translate(new Point(150.0, -37, 0)))
+                .collect(Collectors.toList());
+
+        for (int i = 0; i < points.size(); i++) {
+            //just going to write to a file
+            writerFile.write(String.format("%s, ",Double.toString(points.get(i).getX())));
+            writerFile.write(String.format("%s, ",Double.toString(points.get(i).getY())));
+            writerFile.write(String.format("%s%n", Double.toString(points.get(i).getZ())));
+        }
+
+        writerFile.close();
+    }
+    catch(IOException ex){
+
+        System.out.println("something went wrong");
+
+    }
+
+
 }
 
 
    public static void main(String[] args)
    {
 
-                List<Point> points = new ArrayList<Point>();
-
-
        String filename = getFilename(args);
+
 
 
 

@@ -29,6 +29,8 @@ public class drawPoints extends PApplet {
         }
 
         public static void main(String args[]) {
-      PApplet.main("drawPoints");
+
+            fileAnalyzer.main(args);
+            PApplet.main("drawPoints");
    }
 }
