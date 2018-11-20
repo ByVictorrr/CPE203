@@ -30,7 +30,6 @@ public class drawPoints extends PApplet {
 
         public static void main(String args[]) {
 
-            fileAnalyzer.main(args);
             PApplet.main("drawPoints");
    }
 }
