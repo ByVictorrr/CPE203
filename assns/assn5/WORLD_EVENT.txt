@@ -1,0 +1,9 @@
+Welcome to Victors Flash SuperHero version of the Miner Game
+
+1.) Use your mouse by clicking anywhere in the game to trigger the event.
+2.) The event is a set nuclear reactors that spawn 
+3.) Any miner with in reach of the the particle accelerator turns into the flash. These
+flashes can pick up ores faster than the normal miner.
+4.) THe new entity that is created in the game happends whenever an event
+happends which is doctor Wells (he is the one in the tv series that sets off a
+nuclear reactor that makes barry into the flash with superspeed)
