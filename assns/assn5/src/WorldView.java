@@ -73,8 +73,7 @@ final class WorldView
          if (this.viewport.contains(pos))
          {
             Point thisPoint = this.viewport.worldToViewport(pos.getX(), pos.getY());
-            this.screen.image(Background.getCurrentImage(entity), //
-                    thisPoint.getX() * this.tileWidth, thisPoint.getY() * this.tileHeight);
+            this.screen.image(entity.getCurrentImage(), thisPoint.getX() * this.tileWidth, thisPoint.getY() * this.tileHeight);
          }
       }
    }

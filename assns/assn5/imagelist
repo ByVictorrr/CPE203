@@ -31,10 +31,14 @@ flash images/flash1.png 255 255 255 0
 flash images/flash2.png 255 255 255 0
 flash images/flash3.png 255 255 255 0
 flash images/flash4.png 255 255 255 0
+reverseflash images/reverseflash1.png 255 255 255 0
+reverseflash images/reverseflash2.png 255 255 255 0
+reverseflash images/reverseflash3.png 255 255 255 0
+reverseflash images/reverseflash4.png 255 255 255 0
+gorilla images/gorilla1.png 255 255 255 0
+gorilla images/gorilla2.png 255 255 255 0
+gorilla images/gorilla3.png 255 255 255 0
+gorilla images/gorilla4.png 255 255 255 0
 drwells images/drwells.png 255 255 255 0
-drwells images/reverseflash1.png 255 255 255 0
-drwells images/reverseflash2.png 255 255 255 0
-drwells images/reverseflash3.png 255 255 255 0
-drwells images/reverseflash4.png 255 255 255 0
 particleaccelerator images/particleAccelerator.png 255 255 255 0
 background_default images/none.bmp

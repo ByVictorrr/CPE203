@@ -50,9 +50,9 @@ public class Activity extends Action{
             ((Oreblob) this.entity).execute(this.world,
                     this.imageStore, scheduler);
         }
-        if(this.entity instanceof  drWells){
+        if(this.entity instanceof  ReverseFlash){
 
-            ((drWells)this.entity).execute(this.world,
+        ((ReverseFlash)this.entity).execute(this.world,
                     this.imageStore, scheduler);
         }
 

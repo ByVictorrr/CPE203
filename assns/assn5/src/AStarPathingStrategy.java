@@ -43,7 +43,7 @@ class AStarPathingStrategy implements PathingStrategy{
 
             //step 3 - checking if we have got to the end point
             if (withinReach.test(current.getPosition(), end)){
-                System.out.print("found path");
+                //System.out.print("found path");
                 return computedPath(computedPath_List, current);
             }
 

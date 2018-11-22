@@ -1,3 +1,4 @@
+import com.sun.org.apache.xerces.internal.dom.ElementNSImpl;
 import processing.core.PImage;
 
 import java.util.*;
@@ -64,6 +65,7 @@ final class WorldModel
    }
 
 
+
    public  Optional<Entity> nearestEntity(List<Entity> entities, Point pos)
    {
       if (entities.isEmpty())
@@ -106,6 +108,14 @@ final class WorldModel
       return nearestEntity(ofType, pos);
    }
 
+
+
+
+ /*   public boolean isMinerAdjPA(Point pos){
+       return findNearest(pos,MinerNotFull.class).isPresent() && Point.adjacent(findNearest(pos, MinerNotFull.class).get().getPosition(), pos) ||
+            findNearest(pos,MinerFull.class).isPresent() &&  Point.adjacent(findNearest(pos, MinerFull.class).get().getPosition(), pos);
+   }
+*/
    /*
       Assumes that there is no entity currently occupying the
       intended destination cell.
@@ -157,7 +167,7 @@ final class WorldModel
    {
       if (withinBounds( pos))
       {
-         return Optional.of(Background.getCurrentImage(getBackgroundCell( pos)));
+         return Optional.of(getBackgroundCell( pos).getCurrentImage());
       }
       else
       {
@@ -190,8 +200,7 @@ final class WorldModel
       return occupancy[pos.getY()][pos.getX()];
    }
 
-   public  void setOccupancyCell(  Point pos,
-                                       Entity entity)
+   public  void setOccupancyCell(  Point pos, Entity entity)
    {
       occupancy[pos.getY()][pos.getX()] = entity;
    }

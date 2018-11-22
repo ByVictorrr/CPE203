@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.lang.reflect.Array;
 import java.util.*;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import processing.core.*;
 
@@ -90,6 +91,8 @@ public final class VirtualWorld
    private static final String PARTICLE_ACCELERATOR_KEY = "particleaccelerator";
    private static final String DR_WELLS_KEY = "drwells";
    private static final String FLASH_KEY = "flash";
+   private static final String GORILLA_KEY = "gorilla";
+   private static final String REVERSE_FLASH_KEY = "reverseflash";
 
    private static double timeScale = 1.0;
 //dont need setters or getter because virtual world is the main class
@@ -97,7 +100,7 @@ public final class VirtualWorld
    private WorldModel world;
    private WorldView view;
    private EventScheduler scheduler;
-
+   private boolean clicked;
    private long next_time;
 
    public void settings()
@@ -124,6 +127,7 @@ public final class VirtualWorld
       scheduleActions(world, scheduler, imageStore);
 
       next_time = System.currentTimeMillis() + TIMER_ACTION_PERIOD;
+      clicked = false;
    }
 
    public void draw()
@@ -163,56 +167,70 @@ public final class VirtualWorld
          this.view.shiftView(dx,dy);
       }
    }
-   //sets and offset to a point
-   public Point offSetPressedPoint(int i, int j){return new Point(getPressedPoint().getX()+i,getPressedPoint().getY()+j);}
-   public Point getPressedPoint(){return new Point(mouseX/TILE_WIDTH , mouseY/TILE_HEIGHT);}
 
-   public List<Point> aroundPressedPoints(int disAwayFromPressedPoint){
-
-      //###
-      //#*#
-      //###
-      return
-              Arrays.asList(offSetPressedPoint(0,disAwayFromPressedPoint),
-                            offSetPressedPoint(disAwayFromPressedPoint,0),
-                            offSetPressedPoint(disAwayFromPressedPoint,disAwayFromPressedPoint),
-                            offSetPressedPoint(0,-disAwayFromPressedPoint),
-                            //offSetPressedPoint(-disAwayFromPressedPoint,0),
-                            offSetPressedPoint(-disAwayFromPressedPoint,-disAwayFromPressedPoint),
-                            offSetPressedPoint(disAwayFromPressedPoint,-disAwayFromPressedPoint),
-                            offSetPressedPoint(-disAwayFromPressedPoint,disAwayFromPressedPoint));
-   }
    // When button is pressed
    public void mousePressed() {
-      //create an instance of dr wells
-      drWells harrison = drWells.createdrWells(DR_WELLS_KEY, getPressedPoint(), 0,0, imageStore.getImageList(DR_WELLS_KEY));
-      world.addEntity(harrison);
-      (harrison).scheduleActions(scheduler,world,imageStore);
-      //end of creating him in the game
-      Background particleAccelerators = new Background(PARTICLE_ACCELERATOR_KEY, imageStore.getImageList(PARTICLE_ACCELERATOR_KEY));
-
-      aroundPressedPoints(1).forEach(p ->world.setBackground(p,particleAccelerators));
-     aroundPressedPoints(1).forEach(p->{
-
-      //  world.setBackground(p,particleAccelerators);
-        //if the surrounded positions
-        //isnt null
-        if(world.getOccupant(p).isPresent()) {
-           if (world.getOccupancyCell(p) instanceof Miner || world.getOccupancyCell(p) instanceof MinerFull) {
-               Miner nearByMiner = (Miner)(world.getOccupant(p).get());
-               nearByMiner.setImages(imageStore.getImageList(FLASH_KEY));
-               nearByMiner.setAnimationPeriod(100);
-               nearByMiner.setActionPeriod(30);
-           }
-        }
-
-
-     });
-
-      //redraw();
+      if(!clicked){  //if clicked dont change all blacksmiths into dr wells
+         everyClick();
+      clicked = true;
+      }
+      //hasnt been clicked
+      else {
+         spawnDrWells();
+         everyClick();
+      }
+      redraw();
    }
 
+   private  void spawnDrWells(){
+      List<Entity> smith = world.getEntities().stream().collect(Collectors.toList());
+      List <Blacksmith> realSmith = new ArrayList<>();
+      smith.forEach(E-> { if ( E instanceof  Blacksmith){ realSmith.add((Blacksmith)E); }});
+      List <Blacksmith> drWells = new ArrayList<>();
+      realSmith.forEach(B-> { drWells.add(B); });
+      drWells.forEach(B-> B.setImages(imageStore.getImageList("drwells")));
 
+   }
+   private void everyClick(){
+
+      ReverseFlash Eobard = ReverseFlash.createReverseFlash(REVERSE_FLASH_KEY, getPressedPoint(), 0, 0, imageStore.getImageList(REVERSE_FLASH_KEY));
+      world.addEntity(Eobard);
+      (Eobard).scheduleActions(scheduler, world, imageStore);
+      //end of creating him in the gameB
+      Background particleAccelerator = new Background(PARTICLE_ACCELERATOR_KEY, imageStore.getImageList(PARTICLE_ACCELERATOR_KEY));
+
+      aroundPressedPoints(1).forEach(p -> {
+         world.setBackground(p, particleAccelerator);
+         if (isMinearAtPA(p) && world.getOccupant(p).isPresent()) {
+            Miner minerOnPA = (Miner) (world.getOccupant(p).get());
+            minerOnPA.setImages(imageStore.getImageList(FLASH_KEY));
+            minerOnPA.setAnimationPeriod(100);
+            minerOnPA.setActionPeriod(30);
+         }});
+   }
+
+   ///check if miner is at the PA
+   private boolean isMinearAtPA(Point pos){ return world.withinBounds(pos) && (world.getOccupancyCell(pos) instanceof MinerNotFull ||
+                                                   world.getOccupancyCell(pos) instanceof MinerFull); }
+
+   //sets and offset to a point
+   private Point offSetPressedPoint(int i, int j){return new Point(getPressedPoint().getX()+i,getPressedPoint().getY()+j);}
+   private Point getPressedPoint(){return new Point(mouseX/TILE_WIDTH , mouseY/TILE_HEIGHT);}
+
+   //###
+   //#*#
+   //###
+   private List<Point> aroundPressedPoints(int disAwayFromPressedPoint){
+
+      return Arrays.asList(offSetPressedPoint(0,disAwayFromPressedPoint),
+                      offSetPressedPoint(disAwayFromPressedPoint,0),
+                      offSetPressedPoint(disAwayFromPressedPoint,disAwayFromPressedPoint),
+                      offSetPressedPoint(0,-disAwayFromPressedPoint),
+                      offSetPressedPoint(-disAwayFromPressedPoint,0),
+                      offSetPressedPoint(-disAwayFromPressedPoint,-disAwayFromPressedPoint),
+                      offSetPressedPoint(disAwayFromPressedPoint,-disAwayFromPressedPoint),
+                      offSetPressedPoint(-disAwayFromPressedPoint,disAwayFromPressedPoint));
+   }
 
    public static Background createDefaultBackground(ImageStore imageStore)
    {
@@ -409,14 +427,15 @@ public final class VirtualWorld
 
    public static boolean parseSmith(String[] properties, WorldModel world,
                                     ImageStore imageStore) {
-      if (properties.length == SMITH_NUM_PROPERTIES) {
-         Point pt = new Point(Integer.parseInt(properties[SMITH_COL]),
-                 Integer.parseInt(properties[SMITH_ROW]));
-         Entity entity = Blacksmith.createBlacksmith(properties[SMITH_ID],
-                 pt, imageStore.getImageList(SMITH_KEY));
-         world.tryAddEntity(entity);
-      }
 
+         if (properties.length == SMITH_NUM_PROPERTIES) {
+            Point pt = new Point(Integer.parseInt(properties[SMITH_COL]),
+                    Integer.parseInt(properties[SMITH_ROW]));
+            Entity entity = Blacksmith.createBlacksmith(properties[SMITH_ID],
+                    pt, imageStore.getImageList(SMITH_KEY));
+            world.tryAddEntity(entity);
+
+      }
       return properties.length == SMITH_NUM_PROPERTIES;
    }
 

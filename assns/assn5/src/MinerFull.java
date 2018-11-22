@@ -70,7 +70,7 @@ import java.util.Optional;
         {
             Point nextPos = this.nextPosition( world, target.getPosition());
 
-            System.out.println("next Position: " + nextPos);
+           // System.out.println("next Position: " + nextPos);
             if (!this.getPosition().equals(nextPos))
             {
                 Optional<Entity> occupant = world.getOccupant( nextPos);

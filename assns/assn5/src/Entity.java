@@ -24,7 +24,8 @@ private String id;
         this.actionPeriod = actionPeriod;
         this.animationPeriod = animationPeriod;
     }
-
+    public PImage getCurrentImage(){return images.get(imageIndex);}
+    public void setImageIndex(int II){imageIndex = II;}
     public int getActionPeriod(){return actionPeriod;}
     public List<PImage> getImages() { return this.images;}
     public void setActionPeriod(int ap){actionPeriod = ap;}
@@ -43,8 +44,7 @@ private String id;
     {
         this.imageIndex = (this.getImageIndex()+ 1) % this.getImages().size();
     }
-
-
+    public String toString(){return id;}
 
 
 
