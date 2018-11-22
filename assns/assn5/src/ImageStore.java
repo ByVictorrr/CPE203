@@ -22,8 +22,8 @@ final class ImageStore
       defaultImages = new LinkedList<>();
       defaultImages.add(defaultImage);
    }
-   public static List<PImage> getImageList(ImageStore imageStore, String key) {
-      return imageStore.images.getOrDefault(key, imageStore.defaultImages);
+   public  List<PImage> getImageList(String key) {
+      return images.getOrDefault(key, defaultImages);
    }
 
 
@@ -55,7 +55,7 @@ final class ImageStore
                int r = Integer.parseInt(attrs[KEYED_RED_IDX]);
                int g = Integer.parseInt(attrs[KEYED_GREEN_IDX]);
                int b = Integer.parseInt(attrs[KEYED_BLUE_IDX]);
-               Functions.setAlpha(img, screen.color(r, g, b), 0);
+               VirtualWorld.setAlpha(img, screen.color(r, g, b), 0);
             }
          }
       }

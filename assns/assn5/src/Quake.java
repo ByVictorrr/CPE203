@@ -14,9 +14,7 @@ public class Quake extends Actioned{
 
 
 
-    public Quake(String id, Point position,
-                   List<PImage> images,
-                   int actionPeriod, int animationPeriod) {
+    public Quake(String id, Point position, List<PImage> images, int actionPeriod, int animationPeriod) {
 
         super(id,position,images,actionPeriod,animationPeriod);
     }

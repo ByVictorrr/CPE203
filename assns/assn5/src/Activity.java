@@ -50,14 +50,17 @@ public class Activity extends Action{
             ((Oreblob) this.entity).execute(this.world,
                     this.imageStore, scheduler);
         }
+        if(this.entity instanceof  drWells){
 
+            ((drWells)this.entity).execute(this.world,
+                    this.imageStore, scheduler);
+        }
 
        if(this.entity instanceof Quake) {
 
            ((Quake) this.entity).execute(this.world,
                     this.imageStore, scheduler);
         }
-
 
         if(this.entity instanceof Vein) {
 

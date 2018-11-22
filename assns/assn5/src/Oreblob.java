@@ -10,7 +10,6 @@ public class Oreblob extends Moved{
     public static final String QUAKE_KEY = "quake";
 
 
-
     public Oreblob(String id, Point position,
                List<PImage> images,
                int actionPeriod, int animationPeriod) {
@@ -66,7 +65,7 @@ public class Oreblob extends Moved{
             {
                 Entity quake = Quake.createQuake(tgtPos,
 
-                        ImageStore.getImageList(imageStore, QUAKE_KEY));
+                        imageStore.getImageList(QUAKE_KEY));
 
                 world.addEntity( quake);
                 nextPeriod += this.getActionPeriod();

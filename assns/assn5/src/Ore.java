@@ -40,8 +40,8 @@ public class Ore extends Actioned{
         Entity blob = Oreblob.createOreBlob(this.getId() + BLOB_ID_SUFFIX,
                 pos, this.getActionPeriod() / BLOB_PERIOD_SCALE,
                 BLOB_ANIMATION_MIN +
-                        Functions.rand.nextInt(BLOB_ANIMATION_MAX - BLOB_ANIMATION_MIN),
-                ImageStore.getImageList(imageStore, BLOB_KEY));
+                        VirtualWorld.rand.nextInt(BLOB_ANIMATION_MAX - BLOB_ANIMATION_MIN),
+                imageStore.getImageList( BLOB_KEY));
 
         world.addEntity(blob);
         ((Oreblob) blob).scheduleActions(scheduler, world, imageStore);

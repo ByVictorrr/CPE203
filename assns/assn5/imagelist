@@ -27,10 +27,14 @@ quake images/quake5.bmp 255 255 255 0
 quake images/quake6.bmp 255 255 255 0
 rocks images/rock.bmp
 vein images/vein.bmp
-flash images/Flash1.png 
-flash images/Flash2.png
-flash images/Flash3.png
-flash images/Flash4.png
-drwells images/drWells.png
-particleaccelerator images/ParticleAccelerator.png
+flash images/flash1.png 255 255 255 0
+flash images/flash2.png 255 255 255 0
+flash images/flash3.png 255 255 255 0
+flash images/flash4.png 255 255 255 0
+drwells images/drwells.png 255 255 255 0
+drwells images/reverseflash1.png 255 255 255 0
+drwells images/reverseflash2.png 255 255 255 0
+drwells images/reverseflash3.png 255 255 255 0
+drwells images/reverseflash4.png 255 255 255 0
+particleaccelerator images/particleAccelerator.png 255 255 255 0
 background_default images/none.bmp

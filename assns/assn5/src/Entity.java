@@ -27,10 +27,11 @@ private String id;
 
     public int getActionPeriod(){return actionPeriod;}
     public List<PImage> getImages() { return this.images;}
-
+    public void setActionPeriod(int ap){actionPeriod = ap;}
+    public void setAnimationPeriod(int ap){animationPeriod = ap;}
     public void setPosition(Point p) { this.position = p;}
-
-    int getImageIndex(){return imageIndex;}
+    public void setImages(List<PImage> images){this.images=images;}
+    public int getImageIndex(){return imageIndex;}
 
     public Point getPosition() { return this.position;}
 
