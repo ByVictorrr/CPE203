@@ -1,30 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BookmarkManager">
+    <bookmark url="file://$PROJECT_DIR$/WORLD_EVENT.txt" line="9" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="36b8fa8c-6f19-457d-b309-f5c3c55b51c2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/imagelist" beforeDir="false" afterPath="$PROJECT_DIR$/imagelist" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/AStarPathingStrategy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/AStarPathingStrategy.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/Background.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/Background.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/Entity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/Entity.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/MinerFull.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/MinerFull.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/Oreblob.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/Oreblob.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/ParticleAccelerator.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/Quake.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/Quake.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/VirtualWorld.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/WorldModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/WorldModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Proj5/drWells.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AStarPathingStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AStarPathingStrategy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Activity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Activity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Background.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Background.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/MinerFull.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/MinerFull.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Moved.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Moved.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ParticleAccelerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/WORLD_EVENT.txt" beforeDir="false" afterPath="$PROJECT_DIR$/WORLD_EVENT.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proj5/Ore.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/Ore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proj5/ReverseFlash.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/ReverseFlash.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Proj5/VirtualWorld.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Proj5/VirtualWorld.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReverseFlash.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReverseFlash.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/VirtualWorld.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/VirtualWorld.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WorldModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorldModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WorldView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WorldView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/drWells.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,49 +19,6 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="DockManager">
-    <window id="2">
-      <content type="file-editors">
-        <state>
-          <leaf>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/Ore.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="230">
-                    <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="true">
-              <entry file="file://$PROJECT_DIR$/src/VirtualWorld.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="208">
-                    <caret line="175" selection-start-line="175" selection-end-line="175" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-            <file pinned="false" current-in-tab="false">
-              <entry file="file://$PROJECT_DIR$/src/Oreblob.java">
-                <provider selected="true" editor-type-id="text-editor">
-                  <state relative-caret-position="506">
-                    <caret line="49" column="19" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="19" />
-                    <folding>
-                      <element signature="imports" expanded="true" />
-                    </folding>
-                  </state>
-                </provider>
-              </entry>
-            </file>
-          </leaf>
-        </state>
-      </content>
-    </window>
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1049614127">
@@ -89,43 +33,72 @@
           <entry key="bmp" value="5" />
           <entry key="class" value="18" />
           <entry key="imagelist" value="4" />
-          <entry key="java" value="119" />
+          <entry key="java" value="121" />
           <entry key="png" value="3" />
           <entry key="sav" value="2" />
+          <entry key="txt" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="18" />
           <entry key="Image" value="8" />
-          <entry key="JAVA" value="119" />
-          <entry key="PLAIN_TEXT" value="6" />
+          <entry key="JAVA" value="121" />
+          <entry key="PLAIN_TEXT" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="imagelist" value="203" />
-          <entry key="java" value="8207" />
+          <entry key="java" value="8346" />
+          <entry key="txt" value="868" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="8207" />
-          <entry key="PLAIN_TEXT" value="203" />
+          <entry key="JAVA" value="8346" />
+          <entry key="PLAIN_TEXT" value="1071" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/VirtualWorld.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="213" column="102" selection-start-line="213" selection-start-column="102" selection-end-line="213" selection-end-column="102" />
+            <state relative-caret-position="47">
+              <caret line="191" lean-forward="true" selection-start-line="191" selection-end-line="191" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WORLD_EVENT.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="207">
+              <caret line="9" column="120" lean-forward="true" selection-start-line="9" selection-start-column="120" selection-end-line="9" selection-end-column="120" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EventScheduler.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="23">
+              <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Ore.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-46">
+              <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -154,15 +127,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/../assn3/part2/processing-core.jar!/processing/awt/PSurfaceAWT.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="597" selection-start-line="597" selection-end-line="597" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/WorldModel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="207">
@@ -175,19 +139,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/WorldView.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ReverseFlash.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="139">
-              <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
+            <state relative-caret-position="414">
+              <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -200,15 +155,6 @@
               <folding>
                 <element signature="e#29898#29899#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="jar:///usr/lib/jvm/java-8-openjdk/jre/lib/rt.jar!/java/util/LinkedList.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="198">
-              <caret line="271" selection-start-line="271" selection-end-line="271" />
             </state>
           </provider>
         </entry>
@@ -226,7 +172,6 @@
         <option value="$PROJECT_DIR$/src/Flash.java" />
         <option value="$PROJECT_DIR$/src/Functions.java" />
         <option value="$PROJECT_DIR$/src/ImageStore.java" />
-        <option value="$PROJECT_DIR$/src/Ore.java" />
         <option value="$PROJECT_DIR$/src/Vein.java" />
         <option value="$PROJECT_DIR$/src/Oreblob.java" />
         <option value="$PROJECT_DIR$/src/Quake.java" />
@@ -242,7 +187,9 @@
         <option value="$PROJECT_DIR$/src/Entity.java" />
         <option value="$PROJECT_DIR$/src/WorldView.java" />
         <option value="$PROJECT_DIR$/src/ReverseFlash.java" />
+        <option value="$PROJECT_DIR$/WORLD_EVENT.txt" />
         <option value="$PROJECT_DIR$/src/VirtualWorld.java" />
+        <option value="$PROJECT_DIR$/src/Ore.java" />
       </list>
     </option>
   </component>
@@ -255,7 +202,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="6" />
     <option name="y" value="56" />
-    <option name="width" value="552" />
+    <option name="width" value="832" />
     <option name="height" value="988" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -290,7 +237,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="getCurren&#9;PSI&#9;JAVA://Background#getCurrentImage&#10;adjac&#9;PSI&#9;JAVA://Point#adjacent&#10;moveTo&#9;PSI&#9;JAVA://Moved#moveTo&#10;BLOB&#9;PSI&#9;JAVA://Ore#BLOB_KEY" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542890814719" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1542919628418" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../assn3/part2/processing-core.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -340,7 +287,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-2" y="-22" width="1684" height="1074" extended-state="0" />
+    <frame x="6" y="56" width="832" height="988" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Image Layers" />
@@ -348,7 +295,7 @@
       <window_info id="UI Designer" />
       <window_info id="Capture Tool" />
       <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.11965812" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24936387" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" show_stripe_button="false" />
       <window_info anchor="bottom" id="Terminal" weight="0.32985386" />
@@ -356,7 +303,7 @@
       <window_info anchor="bottom" id="Messages" weight="0.32776618" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32881" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.35281837" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.38761467" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -403,9 +350,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/images/blob9.bmp">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/images/blob3.bmp">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -471,13 +415,6 @@
     <entry file="file://$PROJECT_DIR$/src/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-153">
-          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EventScheduler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-124">
           <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
         </state>
       </provider>
@@ -555,13 +492,6 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Ore.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="26" column="57" selection-start-line="26" selection-start-column="57" selection-end-line="26" selection-end-column="57" />
         </state>
       </provider>
     </entry>
@@ -681,13 +611,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReverseFlash.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="139">
-          <caret line="49" column="15" selection-start-line="49" selection-start-column="15" selection-end-line="49" selection-end-column="15" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gaia.sav">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -735,13 +658,41 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReverseFlash.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="57" column="41" selection-start-line="57" selection-start-column="41" selection-end-line="57" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WORLD_EVENT.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="9" column="120" lean-forward="true" selection-start-line="9" selection-start-column="120" selection-end-line="9" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EventScheduler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23">
+          <caret line="2" column="12" selection-start-line="2" selection-start-column="12" selection-end-line="2" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/VirtualWorld.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="213" column="102" selection-start-line="213" selection-start-column="102" selection-end-line="213" selection-end-column="102" />
+        <state relative-caret-position="47">
+          <caret line="191" lean-forward="true" selection-start-line="191" selection-end-line="191" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Ore.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-46">
+          <caret line="25" column="49" selection-start-line="25" selection-start-column="49" selection-end-line="25" selection-end-column="49" />
         </state>
       </provider>
     </entry>

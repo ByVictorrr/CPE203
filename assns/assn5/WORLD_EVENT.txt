@@ -2,8 +2,10 @@ Welcome to Victors Flash SuperHero version of the Miner Game
 
 1.) Use your mouse by clicking anywhere in the game to trigger the event.
 2.) The event is a set nuclear reactors that spawn 
-3.) Any miner with in reach of the the particle accelerator turns into the flash. These
-flashes can pick up ores faster than the normal miner.
-4.) THe new entity that is created in the game happends whenever an event
-happends which is doctor Wells (he is the one in the tv series that sets off a
-nuclear reactor that makes barry into the flash with superspeed)
+3.) Any miner where the particle accelerator lands on the miner turns into the flash if the event is triggered.
+These flash can pick up ores faster than the normal miner. After the second mouse click spawns in Dr. Wells;
+taking the place of the black smiths helping the flash save the world by collecting ores!
+4.) The new entity that is created in the game whenever a new event is triggered (.i.e a mouse click) -  this new entity is the Reverse Flash.
+When spawned he is seen to be around 8 particle accelerators. The Reverse FLash is an enemy of the FLash and will do anything to help an enemy of the flash.
+Therefore in the game the reverse flash turns the blobs into a donky. This donky can run faster and smash veins quicker.
+

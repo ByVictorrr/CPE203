@@ -5,6 +5,7 @@ import java.util.Optional;
 
 //turns into reverse flash when he starts moving
 public class ReverseFlash extends Moved{
+    private static final String GORILLA_KEY = "gorilla";
 
         public ReverseFlash(String id, Point position,List<PImage> images, int actionPeriod, int animationPeriod) {
         super(id,position,images,actionPeriod,animationPeriod);
@@ -28,11 +29,12 @@ public class ReverseFlash extends Moved{
 
             if (moveTo(world, ReverseFlashTarget.get(), scheduler, imageStore))
             {
-               // Entity quake = Quake.createQuake(tgtPos, imageStore.getImageList(Oreblob.QUAKE_KEY));
-                //world.addEntity( quake);
+               /*Entity quake = Quake.createQuake(tgtPos, imageStore.getImageList(Oreblob.QUAKE_KEY));
+                world.addEntity( quake);
 
-                //nextPeriod += this.getActionPeriod();
-                //((Quake)quake).scheduleActions( scheduler, world, imageStore);
+                nextPeriod += this.getActionPeriod();
+                ((Quake)quake).scheduleActions( scheduler, world, imageStore);
+                */
             }
         }
 
@@ -51,9 +53,9 @@ public class ReverseFlash extends Moved{
 
                 //transforming the blob adjacent to reverse flash into a gorilla
                 gorilla.setImageIndex(3);
-                gorilla.setImages(imageStore.getImageList("gorilla"));
-                gorilla.setAnimationPeriod(10);
-                gorilla.setActionPeriod(10);
+                gorilla.setImages(imageStore.getImageList(GORILLA_KEY));
+                gorilla.setAnimationPeriod(5);
+                gorilla.setActionPeriod(5);
 
                 return true;
 

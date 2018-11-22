@@ -91,7 +91,7 @@ public final class VirtualWorld
    private static final String PARTICLE_ACCELERATOR_KEY = "particleaccelerator";
    private static final String DR_WELLS_KEY = "drwells";
    private static final String FLASH_KEY = "flash";
-   private static final String GORILLA_KEY = "gorilla";
+
    private static final String REVERSE_FLASH_KEY = "reverseflash";
 
    private static double timeScale = 1.0;
@@ -171,13 +171,13 @@ public final class VirtualWorld
    // When button is pressed
    public void mousePressed() {
       if(!clicked){  //if clicked dont change all blacksmiths into dr wells
-         everyClick();
+         everyClick(1,1);
       clicked = true;
       }
       //hasnt been clicked
       else {
          spawnDrWells();
-         everyClick();
+         everyClick(1,1);
       }
       redraw();
    }
@@ -188,10 +188,10 @@ public final class VirtualWorld
       smith.forEach(E-> { if ( E instanceof  Blacksmith){ realSmith.add((Blacksmith)E); }});
       List <Blacksmith> drWells = new ArrayList<>();
       realSmith.forEach(B-> { drWells.add(B); });
-      drWells.forEach(B-> B.setImages(imageStore.getImageList("drwells")));
+      drWells.forEach(B-> B.setImages(imageStore.getImageList(DR_WELLS_KEY)));
 
    }
-   private void everyClick(){
+   private void everyClick(int flashAnimationPeriod, int flashActionPeriod){
 
       ReverseFlash Eobard = ReverseFlash.createReverseFlash(REVERSE_FLASH_KEY, getPressedPoint(), 0, 0, imageStore.getImageList(REVERSE_FLASH_KEY));
       world.addEntity(Eobard);
@@ -204,8 +204,8 @@ public final class VirtualWorld
          if (isMinearAtPA(p) && world.getOccupant(p).isPresent()) {
             Miner minerOnPA = (Miner) (world.getOccupant(p).get());
             minerOnPA.setImages(imageStore.getImageList(FLASH_KEY));
-            minerOnPA.setAnimationPeriod(100);
-            minerOnPA.setActionPeriod(30);
+            minerOnPA.setAnimationPeriod(flashAnimationPeriod);
+            minerOnPA.setActionPeriod(flashActionPeriod);
          }});
    }
 
