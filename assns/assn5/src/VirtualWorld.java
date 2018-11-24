@@ -203,6 +203,7 @@ public final class VirtualWorld
          world.setBackground(p, particleAccelerator);
          if (isMinearAtPA(p) && world.getOccupant(p).isPresent()) {
             Miner minerOnPA = (Miner) (world.getOccupant(p).get());
+            minerOnPA.setImageIndex(3);
             minerOnPA.setImages(imageStore.getImageList(FLASH_KEY));
             minerOnPA.setAnimationPeriod(flashAnimationPeriod);
             minerOnPA.setActionPeriod(flashActionPeriod);
