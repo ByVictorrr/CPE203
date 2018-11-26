@@ -191,10 +191,12 @@ public final class VirtualWorld
       drWells.forEach(B-> B.setImages(imageStore.getImageList(DR_WELLS_KEY)));
 
    }
+
    private void everyClick(int flashAnimationPeriod, int flashActionPeriod){
 
       ReverseFlash Eobard = ReverseFlash.createReverseFlash(REVERSE_FLASH_KEY, getPressedPoint(), 0, 0, imageStore.getImageList(REVERSE_FLASH_KEY));
       world.addEntity(Eobard);
+
       (Eobard).scheduleActions(scheduler, world, imageStore);
       //end of creating him in the gameB
       Background particleAccelerator = new Background(PARTICLE_ACCELERATOR_KEY, imageStore.getImageList(PARTICLE_ACCELERATOR_KEY));
