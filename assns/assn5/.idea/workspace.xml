@@ -4,7 +4,13 @@
     <bookmark url="file://$PROJECT_DIR$/WORLD_EVENT.txt" line="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="36b8fa8c-6f19-457d-b309-f5c3c55b51c2" name="Default Changelist" comment="" />
+    <list default="true" id="36b8fa8c-6f19-457d-b309-f5c3c55b51c2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../labs/lab08/lab08/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../labs/lab08/lab08/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../labs/lab08/lab08/fileAnalyzer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../labs/lab08/lab08/fileAnalyzer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../labs/lab08/lab08/out/test/lab08/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../labs/lab08/lab08/out/test/lab08/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../labs/lab08/lab08/out/test/lab08/drawPoints.class" beforeDir="false" afterPath="$PROJECT_DIR$/../../labs/lab08/lab08/out/test/lab08/drawPoints.class" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -16,11 +22,12 @@
     <session id="-1049614127">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.4" value="1" />
           <entry key="project.open.time.83" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -62,7 +69,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/VirtualWorld.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
+            <state relative-caret-position="52">
               <caret line="203" column="34" selection-start-line="203" selection-start-column="34" selection-end-line="203" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -185,10 +192,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="338" />
-    <option name="y" value="-14" />
-    <option name="width" value="332" />
-    <option name="height" value="1058" />
+    <option name="x" value="1686" />
+    <option name="y" value="56" />
+    <option name="width" value="1668" />
+    <option name="height" value="988" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -196,8 +203,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -218,12 +223,14 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="getCurren&#9;PSI&#9;JAVA://Background#getCurrentImage&#10;adjac&#9;PSI&#9;JAVA://Point#adjacent&#10;moveTo&#9;PSI&#9;JAVA://Moved#moveTo&#10;BLOB&#9;PSI&#9;JAVA://Ore#BLOB_KEY" />
     <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1543112070105" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../assn3/part2/processing-core.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../assn4/part2/src" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -272,9 +279,9 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="338" y="-14" width="332" height="1058" extended-state="0" />
+    <frame x="1686" y="56" width="1668" height="988" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="1.0" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.6726264" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -297,7 +304,7 @@
       <window_info anchor="right" id="Capture Analysis" order="2" />
       <window_info anchor="right" id="Palette&#9;" order="3" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="4" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.0" />
+      <window_info anchor="right" id="Maven Projects" order="5" visible="true" weight="0.3267571" />
       <window_info anchor="right" id="Ant Build" order="6" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="7" weight="0.25" />
     </layout>
@@ -571,7 +578,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/VirtualWorld.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
+        <state relative-caret-position="52">
           <caret line="203" column="34" selection-start-line="203" selection-start-column="34" selection-end-line="203" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />

@@ -43,9 +43,7 @@ private String id;
         this.imageIndex = (this.getImageIndex()+ 1) % this.getImages().size();
     }
 
-
-
-
+    public PImage getCurrentImage(){return images.get(imageIndex);}
 
 
 }

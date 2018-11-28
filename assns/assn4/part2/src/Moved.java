@@ -3,39 +3,41 @@ import java.util.List;
 import java.util.Optional;
 import java.util.List;
 
- public class Moved extends Actioned{
+import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.function.BiPredicate;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+
+abstract public class Moved extends Actioned {
 
     public Moved(String id, Point position, List<PImage> images,
-                    int actionPeriod, int animationPeriod)
-    {
-        super(id,position,images,actionPeriod,animationPeriod);
+                 int actionPeriod, int animationPeriod) {
+        super(id, position, images, actionPeriod, animationPeriod);
     }
 
 
-    public Point nextPosition( WorldModel world, Point destPos)
-    {
-        int horiz = Integer.signum(destPos.x - this.getPosition().x);
-        Point newPos = new Point(this.getPosition().x+ horiz,
-                this.getPosition().y);
+    public Point nextPosition(WorldModel world, Point destPos) {
 
-        Optional<Entity> occupant = world.getOccupant( newPos);
+        PathingStrategy aStarStrategy = new AStarPathingStrategy();
 
-        if (horiz == 0 || (occupant.isPresent() && !(occupant.get().getClass() == Ore.class )))
-        {
-            int vert = Integer.signum(destPos.y - this.getPosition().y);
-            newPos = new Point(this.getPosition().x, this.getPosition().y + vert);
-            occupant = world.getOccupant( newPos);
+        List<Point> nextPoints = aStarStrategy.computePath(getPosition(), destPos, canPassThrough(world), withinReach(), PathingStrategy.CARDINAL_NEIGHBORS);
 
-            if ((vert == 0) ||
-                    (occupant.isPresent() && !(occupant.get().getClass() == Ore.class)))
-            {
-                newPos = this.getPosition();
-            }
+        if (nextPoints.size() == 0) {
+
+            return getPosition();
         }
 
-        return newPos;
+        return nextPoints.get(1);
+
     }
 
+    private static Predicate<Point> canPassThrough(WorldModel world) {
+        return p -> (world.withinBounds(p) && !world.isOccupied(p));
+    }
 
-
+    private static BiPredicate<Point, Point> withinReach() {
+        return Point::adjacent;
+    }
 }

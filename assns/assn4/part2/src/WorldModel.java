@@ -12,15 +12,10 @@ final class WorldModel
 
 
 
-
    public static final String ORE_ID_PREFIX = "ore -- ";
    public static final int ORE_CORRUPT_MIN = 20000;
    public static final int ORE_CORRUPT_MAX = 30000;
    public static final int ORE_REACH = 1;
-
-
-
-
 
 
 
@@ -57,17 +52,17 @@ final class WorldModel
       addEntity( entity);
    }
 
-   public  boolean withinBounds(  Point pos)
+   public boolean withinBounds(  Point pos)
    {
-      return pos.y >= 0 && pos.y < this.numRows &&
-              pos.x >= 0 && pos.x < this.numCols;
+      return pos.getY() >= 0 && pos.getY() < this.numRows &&
+              pos.getX() >= 0 && pos.getX() < this.numCols;
    }
 
    public  boolean isOccupied(  Point pos)
    {
-      return withinBounds( pos) &&
-              getOccupancyCell( pos) != null;
+      return withinBounds( pos) && getOccupancyCell( pos) != null;
    }
+
 
 
    public  Optional<Entity> nearestEntity(List<Entity> entities, Point pos)
@@ -79,11 +74,11 @@ final class WorldModel
       else
       {
          Entity nearest = entities.get(0);
-         int nearestDistance = distanceSquared(nearest.getPosition(), pos);
+         int nearestDistance = Point.distanceSquared(nearest.getPosition(), pos);
 
          for (Entity other : entities)
          {
-            int otherDistance = distanceSquared(other.getPosition(), pos);
+            int otherDistance = Point.distanceSquared(other.getPosition(), pos);
 
             if (otherDistance < nearestDistance)
             {
@@ -96,13 +91,7 @@ final class WorldModel
       }
    }
 
-   public  int distanceSquared(Point p1, Point p2)
-   {
-      int deltaX = p1.x - p2.x;
-      int deltaY = p1.y - p2.y;
 
-      return deltaX * deltaX + deltaY * deltaY;
-   }
 
    public Optional<Entity> findNearest(  Point pos, Class type)
    {
@@ -118,10 +107,10 @@ final class WorldModel
       return nearestEntity(ofType, pos);
    }
 
-   /*
-      Assumes that there is no entity currently occupying the
-      intended destination cell.
-   */
+
+
+
+
    public  void addEntity(  Entity entity)
    {
       if (withinBounds( entity.getPosition()))
@@ -169,7 +158,7 @@ final class WorldModel
    {
       if (withinBounds( pos))
       {
-         return Optional.of(Background.getCurrentImage(getBackgroundCell( pos)));
+         return Optional.of(getBackgroundCell( pos).getCurrentImage());
       }
       else
       {
@@ -199,23 +188,22 @@ final class WorldModel
 
    public  Entity getOccupancyCell(  Point pos)
    {
-      return occupancy[pos.y][pos.x];
+      return occupancy[pos.getY()][pos.getX()];
    }
 
-   public  void setOccupancyCell(  Point pos,
-                                       Entity entity)
+   public  void setOccupancyCell(  Point pos, Entity entity)
    {
-      occupancy[pos.y][pos.x] = entity;
+      occupancy[pos.getY()][pos.getX()] = entity;
    }
 
    public  Background getBackgroundCell(  Point pos)
    {
-      return background[pos.y][pos.x];
+      return background[pos.getY()][pos.getX()];
    }
 
    public void setBackgroundCell(  Point pos, Background background)
    {
-      this.background[pos.y][pos.x] = background;
+      this.background[pos.getY()][pos.getX()] = background;
    }
 
 
@@ -225,7 +213,7 @@ final class WorldModel
       {
          for (int dx = -ORE_REACH; dx <= ORE_REACH; dx++)
          {
-            Point newPt = new Point(pos.x + dx, pos.y + dy);
+            Point newPt = new Point(pos.getX() + dx, pos.getY() + dy);
             if (withinBounds( newPt) &&
                     !isOccupied( newPt))
             {

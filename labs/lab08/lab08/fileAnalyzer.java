@@ -109,8 +109,6 @@ public void writeToFile()
        String filename = getFilename(args);
 
 
-
-
       try
       {
          populateDataStructures(filename, points);
