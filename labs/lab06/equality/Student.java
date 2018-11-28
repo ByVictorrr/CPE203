@@ -23,16 +23,12 @@ class Student
    public boolean equals(Object other)
    {
 	if(other == null)
-	{
-	return false;
-	}
-	if ( this.hashCode() == ((Student)other).hashCode()){
-	return true;
-	}
-	else{
-	return false;
-	}
-
+	    return false;
+	if (other instanceOf Student){
+	    return this.hashCode() == ((Student)other).hashCode();
+	else
+	    return false;	
 }
+	   
 
 }
