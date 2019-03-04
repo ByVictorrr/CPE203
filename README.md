@@ -1,3 +1,5 @@
 # CPE203: Project-Based Object-Oriented Programming and Design
 
-### C
+### Assignments - Creation of Minder Game
+
+### Labs - Java 
