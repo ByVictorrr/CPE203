@@ -1,6 +1,6 @@
 # Assignments
 
-## Assignmnet 1: Project 1 Part 1: Refactor the UML for the first project
+## Assignment 1: Project 1 Part 1: Refactor the UML for the first project
 
 ## Assignment 2: Project 1 Part 2: Now adjust the code
 
